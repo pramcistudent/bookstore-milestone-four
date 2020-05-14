@@ -1,0 +1,57 @@
+/* google fonts */
+@import url("https://fonts.googleapis.com/css?family=Noto+Serif|Roboto&display=swap");
+
+/* browser reset margins & paddings */
+* {
+  margin: 0;
+  padding: 0;
+}
+
+/* **************************************** HOME PAGE **************************************** */
+
+/* hompage */
+html,
+body {
+  max-width: 100%;
+  overflow-x: hidden;
+  overflow-y: hidden;
+}
+
+/* background image */
+.bg {
+  background-image: url("https://cdn.pixabay.com/photo/2016/02/11/01/53/wall-paper-1193001_960_720.jpg");
+  height: 100%;
+  background-position: center;
+  background-repeat: repeat;
+}
+
+/* navigation */
+.navbar {
+  background-color: #212529;
+  color: #fff;
+  text-transform: uppercase;
+}
+
+a.nav-link {
+  font-family: "Roboto";
+}
+
+/* carousel */
+.carousel-item img {
+  height: 450px !important;
+}
+
+/* footer */
+#main-footer {
+  background-color: #212529;
+  color: #fff;
+  position: absolute;
+  min-height: 120px;
+  width: 100%;
+  bottom: 0;
+}
+
+.footer-img {
+  margin-bottom: 10px;
+  width: 10%;
+}
