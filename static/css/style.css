@@ -10,11 +10,10 @@
 /* **************************************** HOME PAGE **************************************** */
 
 /* hompage */
-html,
 body {
-  max-width: 100%;
-  overflow-x: hidden;
-  overflow-y: hidden;
+	display: flex;
+	flex-direction: column;
+	min-height: 100vh;
 }
 
 /* background image */
@@ -45,7 +44,6 @@ a.nav-link {
 #main-footer {
   background-color: #212529;
   color: #fff;
-  position: absolute;
   min-height: 120px;
   width: 100%;
   bottom: 0;
@@ -54,4 +52,31 @@ a.nav-link {
 .footer-img {
   margin-bottom: 10px;
   width: 10%;
+}
+
+.social a {
+	color: #fff;
+	margin: 2px;
+}
+
+/* feature image */
+.card-img-top {
+	width: 200px;
+	margin: 5% auto;
+	height: 300px;
+	box-shadow: 5px 5px 5px #666;
+}
+
+/* button */
+.btn-custom {
+	background-color: #007bff;
+	color: rgb(255, 255, 255);
+	width: 100px;
+	margin: auto;
+	border-radius: 5px;
+}
+
+.btn-custom:hover {
+	background-color: #0069d9;
+	color: rgb(255, 255, 255);
 }
