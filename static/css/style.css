@@ -11,9 +11,9 @@
 
 /* hompage */
 body {
-	display: flex;
-	flex-direction: column;
-	min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
 }
 
 /* background image */
@@ -55,28 +55,33 @@ a.nav-link {
 }
 
 .social a {
-	color: #fff;
-	margin: 2px;
+  color: #fff;
+  margin: 2px;
+}
+
+/* ************************************ BROWSE ALL BOOKS PAGE ************************************ */
+
+.search-card {
+  background-color: rgb(116, 224, 252);
 }
 
 /* feature image */
 .card-img-top {
-	width: 200px;
-	margin: 5% auto;
-	height: 300px;
-	box-shadow: 5px 5px 5px #666;
+  width: 200px;
+  margin: 5% auto;
+  height: 300px;
+  box-shadow: 5px 5px 5px #666;
 }
 
 /* button */
 .btn-custom {
-	background-color: #007bff;
-	color: rgb(255, 255, 255);
-	width: 100px;
-	margin: auto;
-	border-radius: 5px;
+  background-color: #007bff;
+  color: rgb(255, 255, 255);
+  margin: auto;
+  border-radius: 5px;
 }
 
 .btn-custom:hover {
-	background-color: #0069d9;
-	color: rgb(255, 255, 255);
+  background-color: #0069d9;
+  color: rgb(255, 255, 255);
 }
