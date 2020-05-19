@@ -5,7 +5,7 @@
 	<!-- Book -->
 	<div class="row mt-4 mb-4">
 		<div class="col-md-4 mt-4">
-			<img class="book-cover-image" src="{{ book.book_image.url }}" alt="">
+			<img class="book-cover-image" src="{{ book.book_image.url }}" alt="{{ book.title }}">
 		</div>
 		<div class="col-md-8 mt-4">
 			<h4 class="mb-4">{{ book.title }}</h4>
@@ -16,7 +16,7 @@
 				<strong>Category:</strong> {{ book.category_name }}</p>
 			<p>
 				<strong>Author:</strong> {{ book.author }}</p>
-			<img class="book-author-image mb-3" src="{{ book.author.photo.url }}" alt="">
+			<img class="book-author-image mb-3" src="{{ book.author.photo.url }}" alt="{{ book.author }}">
 			<p>{{ book.author.description }}</p>
 		</div>
 	</div>
