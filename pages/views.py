@@ -6,7 +6,7 @@ from authors.models import Author
 
 
 def index(request):
-    books = Books.objects.filter(is_published=True).order_by("-list_date")
+    books = Books.objects.filter(is_published=True).order_by("-list_date")[:3]
     context = {"books": books}
     return render(request, "pages/index.html", context)
 

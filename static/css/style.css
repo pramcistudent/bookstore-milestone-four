@@ -85,3 +85,15 @@ a.nav-link {
   background-color: #0069d9;
   color: rgb(255, 255, 255);
 }
+
+/* pagination */
+.page-link {
+  color: #007bff;
+}
+
+.page-item.active .page-link {
+  z-index: 1;
+  color: #fff;
+  background-color: #007bff;
+  border-color: #007bff;
+}
