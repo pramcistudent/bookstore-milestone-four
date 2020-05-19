@@ -109,6 +109,7 @@ a.nav-link {
 .book-author-image {
   width: 15%;
   border-radius: 5px;
+  float: left;
 }
 
 /* ************************************ REGISTER PAGE ************************************ */
