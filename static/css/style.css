@@ -62,7 +62,7 @@ a.nav-link {
 /* ************************************ BROWSE ALL BOOKS PAGE ************************************ */
 
 .search-card {
-  background-color: rgb(116, 224, 252);
+  background-color: #f8f9fa;;
 }
 
 /* feature image */
@@ -78,7 +78,8 @@ a.nav-link {
   background-color: #007bff;
   color: rgb(255, 255, 255);
   margin: auto;
-  border-radius: 5px;
+  border-radius: 15px;
+  height: 40px;
 }
 
 .btn-custom:hover {
@@ -108,4 +109,11 @@ a.nav-link {
 .book-author-image {
   width: 15%;
   border-radius: 5px;
+}
+
+/* ************************************ REGISTER PAGE ************************************ */
+
+.card-header {
+	background-color: #fab567;;
+	color: #fff;
 }
