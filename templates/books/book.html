@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<div class="container">
+	<!-- Book -->
+	<div class="row mt-4 mb-4">
+		<div class="col-md-4 mt-4">
+			<img class="book-cover-image" src="{{ book.book_image.url }}" alt="">
+		</div>
+		<div class="col-md-8 mt-4">
+			<h4 class="mb-4">{{ book.title }}</h4>
+			<p>{{ book.description }}</p>
+			<p>
+				<strong>Price:</strong> £{{ book.price }}</p>
+			<p>
+				<strong>Category:</strong> {{ book.category_name }}</p>
+			<p>
+				<strong>Author:</strong> {{ book.author }}</p>
+			<img class="book-author-image mb-3" src="{{ book.author.photo.url }}" alt="">
+			<p>{{ book.author.description }}</p>
+		</div>
+	</div>
+</div>
+
+{% endblock %}

@@ -97,3 +97,15 @@ a.nav-link {
   background-color: #007bff;
   border-color: #007bff;
 }
+
+/* ************************************ SINGLE BOOK PAGE ************************************ */
+
+.book-cover-image {
+  width: 100%;
+  box-shadow: 5px 5px 5px #666;
+}
+
+.book-author-image {
+  width: 15%;
+  border-radius: 5px;
+}
