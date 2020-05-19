@@ -9,14 +9,14 @@
 		</div>
 		<div class="col-md-8 mt-4">
 			<h4 class="mb-4">{{ book.title }}</h4>
+			<p><strong>Synopsis</strong></p>
 			<p>{{ book.description }}</p>
-			<p>
-				<strong>Price:</strong> £{{ book.price }}</p>
-			<p>
-				<strong>Category:</strong> {{ book.category_name }}</p>
-			<p>
-				<strong>Author:</strong> {{ book.author }}</p>
-			<img class="book-author-image mb-3" src="{{ book.author.photo.url }}" alt="{{ book.author }}">
+			<p><strong>Price:</strong> £{{ book.price }}</p>
+			<p><strong>Category:</strong> {{ book.category_name }}</p>
+			<p><strong>IBSN:</strong> {{ book.isbn }}</p>
+			<hr>
+			<img class="book-author-image mb-3 mr-3" src="{{ book.author.photo.url }}" alt="{{ book.author }}">
+			<p><strong>Author:</strong> {{ book.author }}</p>
 			<p>{{ book.author.description }}</p>
 		</div>
 	</div>
