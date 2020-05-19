@@ -40,7 +40,8 @@ INSTALLED_APPS = [
     "django.contrib.staticfiles",
     "django.contrib.humanize",
     "pages.apps.PagesConfig",
-	"books.apps.BooksConfig",
+    "books.apps.BooksConfig",
+    "authors.apps.AuthorsConfig",
 ]
 
 MIDDLEWARE = [
