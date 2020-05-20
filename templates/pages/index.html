@@ -3,6 +3,9 @@
 
 <!-- home page carousel -->
 <div class="container home_page_container">
+	<!-- messages -->
+	<br />
+	{% include 'partials/_messages.html' %}
 	<div class="col-md-12">
 		<div id="carouselExampleIndicators" class="carousel slide my-4" data-ride="carousel">
 			<ol class="carousel-indicators">
@@ -43,8 +46,8 @@
 				<div class="card text-center">
 					<a href="{% url 'book' book.id %}"><img class="card-img-top" src="{{ book.book_image.url }}" alt="{{ book.title }}"></a>
 					<h5>{{ book.title }}</h3>
-					<p>{{ book.author }}</p>
-					<a href=""><button class="btn btn-custom btn-sm mb-4"><i class="fas fa-shopping-cart"></i> Add to Cart</button></a>
+						<p>{{ book.author }}</p>
+						<a href=""><button class="btn btn-custom btn-sm mb-4"><i class="fas fa-shopping-cart"></i> Add to Cart</button></a>
 				</div>
 			</div>
 			{% endfor %}
