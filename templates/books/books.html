@@ -1,4 +1,5 @@
 {% extends 'base.html' %}
+{% block title %} | Browse books {% endblock %}
 {% block content %}
 
 <div class="container">
@@ -55,17 +56,17 @@
 				</li>
 				{% else %}
 				<li class="page-item disabled">
-					<a class="page-link">&laquo;</a>
+					<a class="page-link"><i class="fas fa-angle-double-left"></i></a>
 				</li>
 				{% endif %}
 				{% for i in books.paginator.page_range %}
 				{% if books.number == i %}
 				<li class="page-item active">
-					<a class="page-link">{{i}}</a>
+					<strong><a class="page-link">{{i}}</a></strong>
 				</li>
 				{% else %}
 				<li class="page-item">
-					<a href="?page={{i}}" class="page-link">{{i}}</a>
+					<strong><a href="?page={{i}}" class="page-link">{{i}}</a></strong>
 				</li>
 				{% endif %}
 				{% endfor %}
@@ -75,7 +76,7 @@
 				</li>
 				{% else %}
 				<li class="page-item disabled">
-					<a class="page-link">&raquo;</a>
+					<a class="page-link"><i class="fas fa-angle-double-right"></i></a>
 				</li>
 				{% endif %}
 			</ul>
