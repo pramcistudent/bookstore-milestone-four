@@ -2,7 +2,108 @@
 {% block content %}
 
 <div class="container">
-	<h1>Cart</h1>
+	{% if not cart_items %}
+	<div>
+		<h1 class="text-center my_title pt-5">
+			Your shopping cart is empty
+		</h1>
+		<br>
+		<h4 class="text-center">Please click <a href="{% url 'books' %}">here</a> to continue shopping.</h4>
+	</div>
+	{% else %}
+	<div>
+		<div class="text-center pb-4">
+			<br>
+			<h2>Your shopping cart</h2>
+		</div>
+	</div>
+	<div class="row mx-auto">
+		<div class="col-12 col-sm-13 col-md-12 col-lg-6 text-center">
+			<table class="table custom_table table-striped">
+				<thead class="table_head">
+					<tr>
+						<th colspan="5">
+							Your items
+						</th>
+					</tr>
+				</thead>
+				<tbody>
+					{% for cart_item in cart_items %}
+					<tr>
+						<td>
+							<img src="{{cart_item.book.book_image.url}}" alt="{{ cart_item.book.title }}" class="float-left rounded custom_image">
+						</td>
+						<td class="text-left">
+							<strong>{{ cart_item.book.title }}</strong>
+							<br>
+							<br>
+							<strong>Price:</strong> £{{cart_item.book.price}}
+							<br>
+							<strong>Qty:</strong> {{cart_item.quantity}}
+						</td>
+						<td>
+							<strong>Total:</strong> £{{cart_item.sub_total}}
+						</td>
+						{% if cart_item.quantity < cart_item.book.stock %}
+						<td>
+							<a href="{% url 'cart:add_cart' cart_item.book.id %}" class="custom_a">
+								<i class="fas fa-plus-circle custom_icon" title="Add"></i>
+							</a>
+							&nbsp;
+							<a href="{% url 'cart:cart_remove' cart_item.book.id %}" class="custom_a">
+								<i class="fas fa-minus-circle custom_icon" title="Minus"></i>
+							</a>
+							&nbsp;
+							<a href="{% url 'cart:full_remove' cart_item.book.id %}" class="custom_a">
+								<i class="fas fa-trash-alt custom_icon" title="Remove"></i>
+							</a>
+						</td>
+						{% else %}
+						<td>
+							<a href="{% url 'cart:cart_remove' cart_item.book.id %}" class="custom_a">
+								<i class="fas fa-minus-circle custom_icon" title="Minus"></i>
+							</a>
+							&nbsp;
+							<a href="{% url 'cart:full_remove' cart_item.book.id %}" class="custom_a">
+								<i class="fas fa-trash-alt custom_icon" title="Remove"></i>
+							</a>
+						</td>
+						<td></td>
+						{% endif %}
+					</tr>
+					{% endfor %}
+				</tbody>
+			</table>
+		</div>
+		<div class="col-12 col-sm-12 col-md-12 col-lg-6 text-center">
+			<table class="table custom_table">
+				<thead class="table_head">
+					<tr>
+						<th>
+							Checkout
+						</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td>
+							Please review your shopping cart before proceeding with your order payment.
+						</td>
+					</tr>
+					<tr>
+						<td class="text-left">
+							<strong>Basket total is: £{{ total }}</strong>
+						</td>
+					</tr>
+				</tbody>
+			</table>
+			<div class="mx-auto">
+				<a href="{% url 'books' %}" class="btn btn-custom btn-block mt-4">Continue Shopping</a>
+			</div>
+		</div>
+	</div>
+	<br>
+	{% endif %}
 </div>
 
 {% endblock %}

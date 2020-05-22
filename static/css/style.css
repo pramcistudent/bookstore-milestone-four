@@ -148,3 +148,30 @@ a.nav-link {
 .change-password {
   width: 550px;
 }
+
+/* ************************************ CART PAGE ************************************ */
+
+.custom_table {
+  min-width: 400px;
+}
+
+.table_head {
+  background: rgb(254,254,254);
+  background: radial-gradient(circle, rgba(254,254,254,1) 0%, rgba(189,189,189,1) 100%);
+}
+
+.custom_image {
+  width: 75px;
+  height: 100px;
+  box-shadow: 3px 3px 3px #666;
+}
+
+.custom_a {
+  text-decoration: none;
+}
+
+.custom_icon {
+  text-decoration: none;
+  color: #007bff;
+}
+

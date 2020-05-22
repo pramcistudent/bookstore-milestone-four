@@ -29,9 +29,11 @@
 					<a class="nav-link" href="{% url 'logout' %}"><i class="fas fa-sign-out-alt"></i> logout</a>
 				</li>
 				<!-- cart link -->
+				{% if item_count > 0 %}
 				<li {% if 'cart' in request.path %} class="nav-item active mr-3" {% else %} class="nav-item mr-3" {% endif %}>
-					<a class="nav-link" href="{% url 'cart' %}"><i class="fas fa-shopping-cart"></i> cart</a>
+					<a class="nav-link" href="{% url 'cart:cart_detail' %}"><i class="fas fa-shopping-cart"></i> cart ({{ item_count }})</a>
 				</li>
+				{% endif %}
 				<!-- if user is not logged in -->
 				{% else %}
 				<!-- register link -->
