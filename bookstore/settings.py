@@ -43,6 +43,7 @@ INSTALLED_APPS = [
     "books.apps.BooksConfig",
     "authors.apps.AuthorsConfig",
     "accounts.apps.AccountsConfig",
+    "cart.apps.CartConfig",
 ]
 
 MIDDLEWARE = [
