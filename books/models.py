@@ -13,7 +13,9 @@ class Books(models.Model):
     book_image = models.ImageField(upload_to="photos/%Y/%m/%d/")
     is_published = models.BooleanField(default=True)
     list_date = models.DateTimeField(default=datetime.now, blank=True)
+    stock = models.IntegerField(default=0)
+    available = models.BooleanField(default=True)
+    updated = models.DateTimeField(auto_now=True)
 
     def __str__(self):
         return self.title
-
