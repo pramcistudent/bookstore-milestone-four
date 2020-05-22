@@ -13,14 +13,14 @@
 				</div>
 				<div class="col-md-4">
 					<select name="author" class="form-control">
-						<option selected="true" disabled="disabled">by author</option>
+						<option name="author" selected="true" disabled="disabled">by author</option>
 						{% for book in books_all %}
-						<option value="{{ book.author }}">{{ book.author }}</option>
+						<option name=value="{{ book.author }}">{{ book.author }}</option>
 						{% endfor %}
 					</select>
 				</div>
 				<div class="col-md-4">
-					<input type="text" name="category-name" id="" class="form-control" placeholder="by category">
+					<input type="text" name="category-name" id="" placeholder="by category" class="form-control">
 				</div>
 				<button type="submit" class="btn-custom btn-block mt-4"><i class="fas fa-search"></i> Search</button>
 			</div>

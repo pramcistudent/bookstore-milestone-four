@@ -38,7 +38,7 @@ def search(request):
     if "author" in request.GET:
         author = request.GET["author"]
         if author:
-            queryset_list = queryset_list.filter(author__exact=author)
+            queryset_list = queryset_list.filter(author__name__exact=author)
 
     # category
     if "category_name" in request.GET:
