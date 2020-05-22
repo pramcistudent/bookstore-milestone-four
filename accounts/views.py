@@ -1,10 +1,12 @@
 from django.shortcuts import render, redirect
 from django.contrib import messages, auth
 from django.contrib.auth.models import User
+from .forms import LoginForm, RegisterForm
 
 
 # Create your views here.
 def register(request):
+    form = RegisterForm()
     if request.method == "POST":
         # retrieve form values
         first_name = request.POST["first_name"]
@@ -12,9 +14,9 @@ def register(request):
         username = request.POST["username"]
         email = request.POST["email"]
         password = request.POST["password"]
-        password2 = request.POST["password2"]
+        password_confirm = request.POST["password_confirm"]
         # check if both passwords match
-        if password == password2:
+        if password == password_confirm:
             # check username hasn't already been used
             if User.objects.filter(username=username).exists():
                 messages.error(request, "That username already exists")
@@ -41,10 +43,11 @@ def register(request):
             messages.error(request, "passwords do not match")
             return redirect("register")
     else:
-        return render(request, "accounts/register.html")
+        return render(request, "accounts/register.html", {"form": form})
 
 
 def login(request):
+    form = LoginForm()
     if request.method == "POST":
         username = request.POST["username"]
         password = request.POST["password"]
@@ -57,7 +60,7 @@ def login(request):
             messages.error(request, "Invalid username or password")
             return redirect("login")
     else:
-        return render(request, "accounts/login.html")
+        return render(request, "accounts/login.html", {"form": form})
 
 
 def logout(request):
