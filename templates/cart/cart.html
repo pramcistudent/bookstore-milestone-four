@@ -1,4 +1,5 @@
 {% extends 'base.html' %}
+{% load static %}
 {% block content %}
 
 <div class="container">
@@ -92,12 +93,27 @@
 					</tr>
 					<tr>
 						<td class="text-left">
-							<strong>Basket total is: £{{ total }}</strong>
+							<strong>Basket total: £{{ total }}</strong>
 						</td>
 					</tr>
 				</tbody>
 			</table>
 			<div class="mx-auto">
+				<form action="" method="POST">
+					{% csrf_token %}
+					<script
+						src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+						data-key="{{ data_key }}"
+						data-amount="{{ stripe_total }}"
+						data-description="{{ description }}"
+						data-image="{% static 'img/logo.png' %}"
+						data-locale="auto"
+						data-currency="GBP"
+						data-shipping-address="true"
+						data-billing-address="true"
+						data-zip-code="true">
+					</script>
+				</form>
 				<a href="{% url 'books' %}" class="btn btn-custom btn-block mt-4">Continue Shopping</a>
 			</div>
 		</div>
