@@ -5,6 +5,8 @@ from django.core.exceptions import ObjectDoesNotExist
 from django.conf import settings
 from order.models import Order, OrderItem
 import stripe
+from django.template.loader import get_template
+from django.core.mail import EmailMessage
 
 # Create your views here.
 def _cart_id(request):
@@ -45,7 +47,7 @@ def cart_detail(request, total=0, counter=0, cart_items=None):
     """ stripe payment details """
     stripe.api_key = settings.STRIPE_SECRET_KEY
     stripe_total = int(total * 100)
-    description = "Bookstore - Online Book Store"
+    description = "Bookstore"
     data_key = settings.STRIPE_PUBLISHABLE_KEY
     if request.method == "POST":
         try:
@@ -99,8 +101,7 @@ def cart_detail(request, total=0, counter=0, cart_items=None):
                     books.stock = int(order_item.book.stock - order_item.quantity)
                     books.save()
                     order_item.delete()
-                    """The terminal will print this message when the order is saved"""
-                return redirect('order:thanks', order_details.id)
+                return redirect("order:thanks", order_details.id)
             except ObjectDoesNotExist:
                 pass
         except stripe.error.CardError as e:
@@ -137,3 +138,21 @@ def full_remove(request, book_id):
     cart_item = CartItem.objects.get(book=book, cart=cart)
     cart_item.delete()
     return redirect("cart:cart_detail")
+
+
+def sendEmail(order_id):
+    transaction = Order.objects.get(id=order_id)
+    order_items = OrderItem.objects.filter(order=transaction)
+    try:
+        """Sending the order"""
+        subject = "Bookstore - New Order #{}".format(transaction.id)
+        to = ["{}".format(transaction.emailAddress)]
+        from_email = "orders@bookstore.com"
+        order_information = {"transaction": transaction, "order_items": order_items}
+        message = get_template("email/email.html").render(order_information)
+        msg = EmailMessage(subject, message, to=to, from_email=from_email)
+        msg.content_subtype = "html"
+        msg.send()
+    except IOError as e:
+        return e
+
