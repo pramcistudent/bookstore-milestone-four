@@ -1,0 +1,68 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}| Order Details{% endblock %}
+{% block content %}
+
+<br>
+<div class="container col-8 offset-2" style="background-color: white;">
+	<div class="text-center">
+		<br>
+		<h1 class="text-center">Order Details</h1>
+		<br>
+		<div class="col-10 offset-1">
+			<table class="table table-bordered">
+				<tr>
+					<td class="text-left">
+						<b>Shipping Address: </b> <br>
+						{{ order.shippingName }} <br>
+						{{ order.shippingAddress1 }} <br>
+						{{ order.shippingCity }} <br>
+						{{ order.shippingCountry }} <br>
+					</td>
+					<td class="text-left">
+						<b>Billing Address: </b> <br>
+						{{ order.billingName }} <br>
+						{{ order.billingAddress1 }} <br>
+						{{ order.billingCity }} <br>
+						{{ order.billingCountry }} <br>
+					</td>
+					<td class="text-left">
+						<b>Order: </b> {{ order.id }} <br>
+						<b>Date: </b>{{ order.created | date:"D M Y" }} <br>
+						<b>Order Total: </b>£{{ order.total }} <br>
+						<b>Order Status: </b><i class="fas fa-check"></i> Complete<br>
+						<b>Payment: </b>Paid via Stripe
+					</td>
+				</tr>
+			</table>
+		</div>
+		<div class="col-7 offset-1">
+			<table class="table table-bordered">
+				<tr>
+					<td><b>Product Description</b></td>
+					<td><b>Qty</b></td>
+					<td><b>Unit Price</b></td>
+					<td><b>Sub-Total</b></td>
+				</tr>
+				{% for item in order_items %}
+				<tr>
+					<td>{{ item.book }}</td>
+					<td>{{ item.quantity }}</td>
+					<td>£{{ item.price }}</td>
+					<td>£{{ item.sub_total }}</td>
+					{% endfor %}
+				</tr>
+				<tr>
+					<td class="text-right" colspan="3"><b>Total Paid</b></td>
+					<td>£{{ order.total }}</td>
+				</tr>
+			</table>
+		</div>
+		<button class="btn btn-custom mb-4" onclick="window.print()"><i class="fas fa-print"></i> Print Order</button>
+		<br>
+	</div>
+</div>
+<br>
+<br>
+
+{% endblock %}
