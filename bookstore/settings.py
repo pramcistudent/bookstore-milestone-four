@@ -44,6 +44,8 @@ INSTALLED_APPS = [
     "authors.apps.AuthorsConfig",
     "accounts.apps.AccountsConfig",
     "cart.apps.CartConfig",
+    "order.apps.OrderConfig",
+    "stripe",
 ]
 
 MIDDLEWARE = [
@@ -130,3 +132,7 @@ MEDIA_ROOT = os.path.join(BASE_DIR, "./media")
 from django.contrib.messages import constants as messages
 
 MESSAGE_TAGS = {messages.ERROR: "danger"}
+
+# stripe payment configuration
+STRIPE_PUBLISHABLE_KEY = os.environ.get("STRIPE_PUBLISHABLE_KEY")
+STRIPE_SECRET_KEY = os.environ.get("STRIPE_SECRET_KEY")
