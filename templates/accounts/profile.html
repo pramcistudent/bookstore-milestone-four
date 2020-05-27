@@ -7,7 +7,8 @@
 	<p><strong>Username: </strong>{{ user.username }}</p>
 	<p><strong>Email: </strong>{{ user.email }}</p>
 	<a href="{% url 'password_change' %}"><button class="btn btn-custom btn-sm mb-4"><i class="fa fa-lock"></i> Change my password</button></a>
-
+	<br>
+	<br>
 	{% include 'partials/_order_history.html' %}
 </div>
 
