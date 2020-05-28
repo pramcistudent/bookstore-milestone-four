@@ -73,6 +73,10 @@ a.nav-link {
   box-shadow: 5px 5px 5px #666;
 }
 
+.card {
+  background-color: #f8f9fa;
+}
+
 /* button */
 .btn-custom {
   background-color: #007bff;
@@ -156,8 +160,12 @@ a.nav-link {
 }
 
 .table_head {
-  background: rgb(254,254,254);
-  background: radial-gradient(circle, rgba(254,254,254,1) 0%, rgba(189,189,189,1) 100%);
+  background: rgb(254, 254, 254);
+  background: radial-gradient(
+    circle,
+    rgba(254, 254, 254, 1) 0%,
+    rgba(189, 189, 189, 1) 100%
+  );
 }
 
 .custom_image {
@@ -175,3 +183,8 @@ a.nav-link {
   color: #007bff;
 }
 
+/* stripe payment button */
+.stripe-button-el {
+  width: 100%;
+  display: block;
+}
