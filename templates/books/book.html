@@ -33,4 +33,97 @@
 	</div>
 </div>
 
+<div class="container">
+	<div row class="mb-5">
+		<div class="tab">
+			<button class="tablinks" onclick="multiTab(event, 'Reviews')" id="defaultOpen">Reviews</button>
+			<button class="tablinks" onclick="multiTab(event, 'Write a review')">Write a review</button>
+		</div>
+
+		<div id="Reviews" class="tabcontent">
+			<div class="row p-4">
+				<div class="col-md-4 mt-4">
+					<h6>Rated 4/5 by Joe Bloggs </h6>
+					Review date: 1st April 2020
+				</div>
+				<div class="col-md-8 mt-4">
+					<p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Aspernatur ducimus ab amet accusantium ad soluta autem magnam, maxime ipsum ex quas cum debitis, voluptas culpa temporibus fugiat eligendi sed quisquam.</p>
+				</div>
+				<div class="row p-4">
+					<div class="col-md-4 mt-4">
+						<h6>Rated 3/5 by Sam Smith </h6>
+						Review date: 6th December 2019
+					</div>
+					<div class="col-md-8 mt-4">
+						<p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Aspernatur ducimus ab amet accusantium ad soluta autem magnam, maxime ipsum ex quas cum debitis, voluptas culpa temporibus fugiat eligendi sed quisquam.</p>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div id="reviewform">
+			<div id="Write a review" class="tabcontent">
+				<div class="row p-4">
+					{% if user.is_authenticated %}
+					<div class="col-6 input-group mb-3">
+						<div class="input-group-prepend">
+							<span class="input-group-text" id="basic-addon3">User name:</span>
+						</div>
+						<input type="text" class="form-control" placeholder="{{ user.username }}" aria-label="Username" aria-describedby="basic-addon1">
+					</div>
+					<div class="col-6 input-group mb-3">
+						<div class="input-group-prepend">
+							<label class="input-group-text" for="inputGroupSelect01">Review rating</label>
+						</div>
+						<select class="custom-select" id="inputGroupSelect01">
+							<option selected>Choose...</option>
+							<option value="1">1</option>
+							<option value="2">2</option>
+							<option value="3">3</option>
+							<option value="4">4</option>
+							<option value="5">5</option>
+						</select>
+					</div>
+
+					<div class="col-12 input-group mb-3">
+						<div class="input-group-prepend">
+							<span class="input-group-text">Comments:</span>
+						</div>
+						<textarea class="form-control" aria-label="With textarea">Add your review comments here</textarea>
+					</div>
+					<div class="col-12 btn-review">
+						<button type="submit" class="btn btn-primary btn-block">Add Review</button>
+					</div>
+
+					{% else %}
+					<p><a class="custom-link" href="{% url 'login' %}">Sign in</a> to write a review</p>
+					{% endif %}
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+<script>
+	function multiTab(evt, cityName) {
+		var i, tabcontent, tablinks;
+		tabcontent = document.getElementsByClassName("tabcontent");
+		for (i = 0; i < tabcontent.length; i++) {
+			tabcontent[i].style.display = "none";
+		}
+		tablinks = document.getElementsByClassName("tablinks");
+		for (i = 0; i < tablinks.length; i++) {
+			tablinks[i].className = tablinks[i].className.replace(" active", "");
+		}
+		document.getElementById(cityName).style.display = "block";
+		evt.currentTarget.className += " active";
+	}
+
+	// Get the element with id="defaultOpen" and click on it
+	document.getElementById("defaultOpen").click();
+</script>
+
+
+
+
 {% endblock %}
