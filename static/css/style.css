@@ -59,6 +59,51 @@ a.nav-link {
   margin: 2px;
 }
 
+.fa-twitter:focus,
+.fa-twitter:hover {
+  color: #00aced;
+  -webkit-transition: color 1s ease-out;
+  -moz-transition: color 1s ease-out;
+  -o-transition: color 1s ease-out;
+  transition: color 1s ease-out;
+}
+
+.fa-facebook:focus,
+.fa-facebook:hover {
+  color: #3b5998;
+  -webkit-transition: color 1s ease-out;
+  -moz-transition: color 1s ease-out;
+  -o-transition: color 1s ease-out;
+  transition: color 1s ease-out;
+}
+
+.fa-linkedin:focus,
+.fa-linkedin:hover {
+  color: #007bb6;
+  -webkit-transition: color 1s ease-out;
+  -moz-transition: color 1s ease-out;
+  -o-transition: color 1s ease-out;
+  transition: color 1s ease-out;
+}
+
+.fa-instagram:focus,
+.fa-instagram:hover {
+  color: #517fa4;
+  -webkit-transition: color 1s ease-out;
+  -moz-transition: color 1s ease-out;
+  -o-transition: color 1s ease-out;
+  transition: color 1s ease-out;
+}
+
+.fa-pinterest:focus,
+.fa-pinterest:hover {
+  color: #cb2027;
+  -webkit-transition: color 1s ease-out;
+  -moz-transition: color 1s ease-out;
+  -o-transition: color 1s ease-out;
+  transition: color 1s ease-out;
+}
+
 .p {
   font-family: "Noto Serif";
 }
@@ -67,6 +112,10 @@ a.nav-link {
 
 .search-card {
   background-color: #f8f9fa;
+}
+
+.btn-width {
+  width: 30%;
 }
 
 /* feature image */
@@ -79,19 +128,20 @@ a.nav-link {
 
 .card {
   background-color: #f8f9fa;
+  border-radius: 8px;
 }
 
 /* button */
 .btn-custom {
-  background-color: #007bff;
+  background-image: -webkit-linear-gradient(#28a0e5, #1c8ccc);
   color: rgb(255, 255, 255);
   margin: auto;
-  border-radius: 15px;
+  border-radius: 8px;
   height: 40px;
 }
 
 .btn-custom:hover {
-  background-color: #0069d9;
+  background-image: -webkit-linear-gradient(#28a0e5, #1c8ccc);
   color: rgb(255, 255, 255);
 }
 
@@ -105,6 +155,14 @@ a.nav-link {
   color: #fff;
   background-color: #007bff;
   border-color: #007bff;
+}
+
+.pagination {
+  display: flex;
+  padding-left: 0px;
+  list-style: none;
+  border-radius: 0.25rem;
+  justify-content: center;
 }
 
 /* **************************************** SINGLE BOOK PAGE **************************************** */
@@ -191,9 +249,11 @@ a.nav-link {
   padding: 15px;
   margin: auto;
 }
+
 .form-signin .checkbox {
   font-weight: 400;
 }
+
 .form-signin .form-control {
   position: relative;
   box-sizing: border-box;
@@ -201,9 +261,11 @@ a.nav-link {
   padding: 10px;
   font-size: 16px;
 }
+
 .form-signin .form-control:focus {
   z-index: 2;
 }
+
 .form-signin input[type="password"] {
   margin-bottom: 10px;
   border-bottom-right-radius: 0;
@@ -245,7 +307,7 @@ a.nav-link {
 }
 
 /* stripe payment button */
-.stripe-button-el {
+/* .stripe-button-el {
   width: 100%;
   display: block;
-}
+} */

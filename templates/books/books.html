@@ -22,13 +22,53 @@
 				<div class="col-md-4">
 					<input type="text" name="category-name" id="" placeholder="by category" class="form-control">
 				</div>
-				<button type="submit" class="btn-custom btn-block mt-4"><i class="fas fa-search"></i> Search</button>
+				<button type="submit" class="btn btn-custom btn-width btn-sm mt-4"><i class="fas fa-search"></i> &nbsp; Search</button>
 			</div>
 		</form>
 	</div>
 
-	<div class="container mt-4">
-		<div class="row mt-4 mb-4">
+	<!-- pagination top -->
+	<div class="row">
+		<div class="col-md-12">
+			{% if books.has_other_pages %}
+			<ul class="pagination">
+				{% if books.has_previous %}
+				<li class="page-item">
+					<a href="?page={{ books.previous_page_number }}" class="page-link"><i class="fas fa-angle-double-left"></i></a>
+				</li>
+				{% else %}
+				<li class="page-item disabled">
+					<a class="page-link"><i class="fas fa-angle-double-left"></i></a>
+				</li>
+				{% endif %}
+				{% for i in books.paginator.page_range %}
+				{% if books.number == i %}
+				<li class="page-item active">
+					<strong><a class="page-link">{{i}}</a></strong>
+				</li>
+				{% else %}
+				<li class="page-item">
+					<strong><a href="?page={{i}}" class="page-link">{{i}}</a></strong>
+				</li>
+				{% endif %}
+				{% endfor %}
+				{% if books.has_next %}
+				<li class="page-item">
+					<a href="?page={{ books.next_page_number }}" class="page-link"><i class="fas fa-angle-double-right"></i></a>
+				</li>
+				{% else %}
+				<li class="page-item disabled">
+					<a class="page-link"><i class="fas fa-angle-double-right"></i></a>
+				</li>
+				{% endif %}
+			</ul>
+			{% endif %}
+		</div>
+	</div>
+
+	<!-- browse books view -->
+	<div class="container">
+		<div class="row mb-4">
 			{% if books %}
 			{% for book in books %}
 			<div class="col-md-4 mt-4 mb-4">
@@ -39,7 +79,7 @@
 					<h5>{{ book.title }}</h5>
 					<p>{{ book.author }}</p>
 					<a href="{% url 'cart:add_cart' book.id %}"><button class="btn btn-custom btn-sm mb-4">
-						<i class="fas fa-shopping-cart"></i> Add to Cart</button>
+							<i class="fas fa-shopping-cart"></i> Add to Cart</button>
 					</a>
 				</div>
 			</div>
@@ -49,7 +89,8 @@
 			{% endif %}
 		</div>
 	</div>
-	<!-- pagination -->
+
+	<!-- pagination bottom -->
 	<div class="row mb-4">
 		<div class="col-md-12">
 			{% if books.has_other_pages %}
