@@ -2,14 +2,50 @@
 {% block title %} | Profile {% endblock %}
 {% block content %}
 
-<div class="container mt-4 mb-4">
-	<h3>User Profile:</h3>
-	<p><strong>Username: </strong>{{ user.username }}</p>
-	<p><strong>Email: </strong>{{ user.email }}</p>
-	<a href="{% url 'password_change' %}"><button class="btn btn-custom btn-sm mb-4"><i class="fa fa-lock"></i> Change my password</button></a>
-	<br>
-	<br>
-	{% include 'partials/_order_history.html' %}
+
+<div class="container mt-5 col-6">
+	<h1 class="text-center">Welcome {{ user.username }}</h1>
+	<div row class="mb-5 mt-4">
+		<div class="tab">
+			<button class="tablinks" onclick="multiTab(event, 'Profile')" id="defaultOpen"><strong>Profile</strong></button>
+			<button class="tablinks" onclick="multiTab(event, 'Order History')"><strong>Order History</strong></button>
+		</div>
+
+		<div id="Profile" class="tabcontent">
+			<div class="text-center p-3">
+				<div class="">
+					<p><strong>Registered email: </strong>{{ user.email }}</p>
+					<a href="{% url 'password_change' %}"><button class="btn btn-custom mb-4"><i class="fa fa-lock"></i> Change my password</button></a>
+				</div>
+			</div>
+		</div>
+
+		<div id="Order History" class="tabcontent">
+			<div class="">
+				{% include 'partials/_order_history.html' %}
+			</div>
+		</div>
+	</div>
 </div>
+
+<script>
+	function multiTab(evt, cityName) {
+		var i, tabcontent, tablinks;
+		tabcontent = document.getElementsByClassName("tabcontent");
+		for (i = 0; i < tabcontent.length; i++) {
+			tabcontent[i].style.display = "none";
+		}
+		tablinks = document.getElementsByClassName("tablinks");
+		for (i = 0; i < tablinks.length; i++) {
+			tablinks[i].className = tablinks[i].className.replace(" active", "");
+		}
+		document.getElementById(cityName).style.display = "block";
+		evt.currentTarget.className += " active";
+	}
+
+	// Get the element with id="defaultOpen" and click on it
+	document.getElementById("defaultOpen").click();
+</script>
+
 
 {% endblock %}
