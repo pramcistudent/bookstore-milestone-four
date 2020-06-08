@@ -28,7 +28,7 @@
 						</th>
 					</tr>
 				</thead>
-				<tbody>
+				<tbody style="background-color: white;">
 					{% for cart_item in cart_items %}
 					<tr>
 						<td>
@@ -55,7 +55,7 @@
 								<i class="fas fa-minus-circle custom_icon" title="Minus"></i>
 							</a>
 							&nbsp;
-							<a href="{% url 'cart:full_remove' cart_item.book.id %}" class="custom_a">
+							<a href="{% url 'cart:full_remove' cart_item.book.id %}" class="delete custom_a">
 								<i class="fas fa-trash-alt custom_icon" title="Remove"></i>
 							</a>
 						</td>
@@ -65,7 +65,7 @@
 								<i class="fas fa-minus-circle custom_icon" title="Minus"></i>
 							</a>
 							&nbsp;
-							<a href="{% url 'cart:full_remove' cart_item.book.id %}" class="custom_a">
+							<a href="{% url 'cart:full_remove' cart_item.book.id %}" class="delete custom_a">
 								<i class="fas fa-trash-alt custom_icon" title="Remove"></i>
 							</a>
 						</td>
@@ -85,18 +85,20 @@
 						</th>
 					</tr>
 				</thead>
-				<tbody>
+				<tbody style="background-color: white;">
 					<tr>
 						<td>
 							Please review your shopping cart before proceeding with your order payment.
 						</td>
 					</tr>
+				</tbody>
+				<tfoot class="table_head">
 					<tr>
-						<td class="text-left">
+						<td class="">
 							<strong>Basket total: £{{ total }}</strong>
 						</td>
 					</tr>
-				</tbody>
+				</tfoot>
 			</table>
 			<div class="mx-auto">
 				<form action="" method="POST">
