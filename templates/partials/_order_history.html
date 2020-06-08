@@ -1,15 +1,12 @@
-<div>
+<div class="pt-2">
 	<div class="text-center" style="background-color: white;">
-		<br>
-		<h1 class="text-center">Order History</h1>
-		<br>
 		{% if order_details %}
 		<table class="table table-striped">
 			<thead>
 				<tr>
-					<th>Order Number</th>
+					<th>Order No</th>
 					<th>Order Date</th>
-					<th>Total Amount</th>
+					<th>Total</th>
 					<th></th>
 				</tr>
 			</thead>
@@ -20,9 +17,13 @@
 					<td>{{ order.created | date:"D M Y" }}</td>
 					<td>£{{ order.total }}</td>
 					<td>
-						<strong><a href="{% url 'order:order_details' order.id %}">View order </a></strong>
+						<strong><a href="{% url 'order:order_details' order.id %}">
+							<i class="fa fa-history" data-toggle="tooltip" data-placement="top" title="Order Details"aria-hidden="true"></i> </a>
+						</strong>
 						<span style="color: grey;">&#9679;</span>
-						<strong><a href="#" data-toggle="modal" data-target="#exampleModal"> Track order</a></strong>
+						<strong><a href="#" data-toggle="modal" data-target="#exampleModal">
+							<i class="fa fa-truck" data-toggle="tooltip" data-placement="top" title="Track Order" aria-hidden="true"></i></a>
+						</strong>
 					</td>
 				</tr>
 				{% endfor %}
