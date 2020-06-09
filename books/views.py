@@ -2,6 +2,9 @@ from django.shortcuts import render, get_object_or_404
 from books.models import Books
 from authors.models import Author
 from django.core.paginator import EmptyPage, PageNotAnInteger, Paginator
+from django.http import HttpResponseRedirect
+from reviews.forms import ReviewForm
+from reviews.models import Review
 
 # Create your views here.
 # return all books paginated to 6 on a page
@@ -18,9 +21,20 @@ def books(request):
 # return a single book
 def book(request, book_id):
     book = get_object_or_404(Books, pk=book_id)
+    reviews = Review.objects.filter().order_by("pub_date")
     authors = book.author
     author = Author.objects.all().filter(name=True)
-    context = {"book": book, "author": "author"}
+    if request.method == "POST":
+        form = ReviewForm(request.POST, request.FILES)
+        if form.is_valid():
+            review = form.save(commit=False)
+            review.book = book
+            review.user = request.user
+            review.save()
+            return HttpResponseRedirect(request.META.get("HTTP_REFERER"))
+    else:
+        form = ReviewForm()
+    context = {"book": book, "author": "author", "reviews": reviews, "form": form}
     return render(request, "books/book.html", context)
 
 
@@ -48,4 +62,3 @@ def search(request):
 
     context = {"books": queryset_list, "values": request.GET}
     return render(request, "books/search.html", context)
-
