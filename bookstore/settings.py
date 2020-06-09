@@ -45,6 +45,8 @@ INSTALLED_APPS = [
     "accounts.apps.AccountsConfig",
     "cart.apps.CartConfig",
     "order.apps.OrderConfig",
+    "reviews.apps.ReviewsConfig",
+    "django_forms_bootstrap",
     "stripe",
 ]
 
@@ -137,9 +139,8 @@ MESSAGE_TAGS = {messages.ERROR: "danger"}
 STRIPE_PUBLISHABLE_KEY = os.environ.get("STRIPE_PUBLISHABLE_KEY")
 STRIPE_SECRET_KEY = os.environ.get("STRIPE_SECRET_KEY")
 
-# Email
-EMAIL_HOST = 'smtp.mailgun.org'
-EMAIL_PORT = 587
 EMAIL_USE_TLS = True
-EMAIL_HOST_USER = os.environ.get("EMAIL_HOST_USER")
-EMAIL_HOST_PASSWORD = os.environ.get("EMAIL_HOST_PASSWORD")
+EMAIL_HOST = "smtp.gmail.com"
+EMAIL_HOST_USER = os.environ.get("EMAIL_ADDRESS")
+EMAIL_HOST_PASSWORD = os.environ.get("EMAIL_PASSWORD")
+EMAIL_PORT = 587
