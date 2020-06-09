@@ -212,10 +212,15 @@ a.nav-link {
 .tabcontent {
   display: none;
   padding: 0 12px;
+  border-radius: 0 0 8px 8px;
   background-color: #f1f1f1;
   border: 1px solid rgb(210, 210, 210);
   -webkit-animation: fadeEffect 1s;
   animation: fadeEffect 1s;
+}
+
+.tab-border {
+  border-radius: 8px 8px 0 0;
 }
 
 /* Fade in tabs */
