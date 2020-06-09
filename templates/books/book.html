@@ -1,5 +1,6 @@
 {% extends 'base.html' %}
 {% block title %} | {{ book.title }} {% endblock %}
+{% load bootstrap_tags %}
 {% block content %}
 
 <div class="container">
@@ -42,21 +43,28 @@
 
 		<div id="Reviews" class="tabcontent">
 			<div class="row p-4">
-				<div class="col-md-4 mt-4">
-					<h6>Rated 4/5 by Joe Bloggs </h6>
-					Review date: 1st April 2020
-				</div>
-				<div class="col-md-8 mt-4">
-					<p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Aspernatur ducimus ab amet accusantium ad soluta autem magnam, maxime ipsum ex quas cum debitis, voluptas culpa temporibus fugiat eligendi sed quisquam.</p>
-				</div>
-				<div class="row p-4">
-					<div class="col-md-4 mt-4">
-						<h6>Rated 3/5 by Sam Smith </h6>
-						Review date: 6th December 2019
+				<div class="review-comments mt-4">
+					{% if reviews %}
+					{% for review in reviews %}
+					<div class="col-md-3 user-review">
+						<strong>
+							<p>{{ review.user }}</p>
+						</strong>
+						<p>Rated this book {{ review.rating }} of 5</p>
+						<p>{{ review.pub_date }}</p>
 					</div>
-					<div class="col-md-8 mt-4">
-						<p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Aspernatur ducimus ab amet accusantium ad soluta autem magnam, maxime ipsum ex quas cum debitis, voluptas culpa temporibus fugiat eligendi sed quisquam.</p>
+					<div class="col-md-9 offset-3">
+						<p>{{ review.comment }}</p>
 					</div>
+				</div>
+
+				<div class="review-comments mt-4">
+					{% endfor %}
+					{% else %}
+					<div class="row pl-5">
+						<strong><p>No reviews are available.</p></strong>
+					</div>
+					{% endif %}
 				</div>
 			</div>
 		</div>
@@ -65,38 +73,21 @@
 			<div id="Write a review" class="tabcontent">
 				<div class="row p-4">
 					{% if user.is_authenticated %}
-					<div class="col-6 input-group mb-3">
-						<div class="input-group-prepend">
-							<span class="input-group-text" id="basic-addon3">User name:</span>
+					<form method="POST" enctype="multipart/form-data" class="review-form">
+						{% csrf_token %}
+						{{ form | as_bootstrap }}
+						<div class="btn-review">
+							<!-- <button type="submit" class="btn btn-custom">Add Review</button> -->
+							<button type="submit" class="btn btn-width btn-custom">Add Review</button>
 						</div>
-						<input type="text" class="form-control" placeholder="{{ user.username }}" aria-label="Username" aria-describedby="basic-addon1">
-					</div>
-					<div class="col-6 input-group mb-3">
-						<div class="input-group-prepend">
-							<label class="input-group-text" for="inputGroupSelect01">Review rating</label>
-						</div>
-						<select class="custom-select" id="inputGroupSelect01">
-							<option selected>Choose...</option>
-							<option value="1">1</option>
-							<option value="2">2</option>
-							<option value="3">3</option>
-							<option value="4">4</option>
-							<option value="5">5</option>
-						</select>
-					</div>
-
-					<div class="col-12 input-group mb-3">
-						<div class="input-group-prepend">
-							<span class="input-group-text">Comments:</span>
-						</div>
-						<textarea class="form-control" aria-label="With textarea">Add your review comments here</textarea>
-					</div>
-					<div class="col-12 btn-review">
-						<button type="submit" class="btn btn-primary btn-width btn-custom">Add Review</button>
-					</div>
-
+					</form>
 					{% else %}
-					<p><a class="custom-link" href="{% url 'login' %}">Sign in</a> to write a review</p>
+					<div class="row p-5">
+						<h4><a class="custom-link" href="{% url 'login' %}">
+								<i class="fa fa-sign-in-alt fa-2x" data-toggle="tooltip" data-placement="top" title="Sign in" aria-hidden="true"></i>
+							</a> to write a review
+						</h4>
+					</div>
 					{% endif %}
 				</div>
 			</div>

@@ -242,6 +242,20 @@ a.nav-link {
   }
 }
 
+.review-form,
+.review-comments {
+  width: 100%;
+}
+
+.user-review {
+  float: left;
+}
+
+.user-review > p,
+.user-review > strong > p {
+  margin: 0;
+}
+
 /* **************************************** REGISTER PAGE **************************************** */
 
 .card-header {
