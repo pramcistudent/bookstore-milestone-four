@@ -1,40 +1,39 @@
-<div class="">
-	<div class="text-center" style="background-color: #F1F1F1;">
-		{% if order_details %}
-		<table class="table">
-			<thead>
-				<tr>
-					<th>Order No</th>
-					<th>Order Date</th>
-					<th>Total</th>
-					<th></th>
-				</tr>
-			</thead>
-			<tbody>
-				{% for order in order_details %}
-				<tr>
-					<td>{{ order.id }}</td>
-					<td>{{ order.created | date:"D M Y" }}</td>
-					<td>£{{ order.total }}</td>
-					<td>
-						<strong><a href="{% url 'order:order_details' order.id %}">
-							<i class="fa fa-history" data-toggle="tooltip" data-placement="top" title="Order Details"aria-hidden="true"></i> </a>
-						</strong>
-						<span style="color: grey;">&#9679;</span>
-						<strong><a href="#" data-toggle="modal" data-target="#exampleModal">
+<div class="text-center" style="background-color: #F1F1F1;">
+	{% if order_details %}
+	<table class="table">
+		<thead>
+			<tr>
+				<th>Order No</th>
+				<th>Order Date</th>
+				<th>Total</th>
+				<th></th>
+			</tr>
+		</thead>
+		<tbody>
+			{% for order in order_details %}
+			<tr>
+				<td>{{ order.id }}</td>
+				<td>{{ order.created | date:"D M Y" }}</td>
+				<td>£{{ order.total }}</td>
+				<td>
+					<strong><a href="{% url 'order:order_details' order.id %}">
+							<i class="fa fa-history" data-toggle="tooltip" data-placement="top" title="Order Details" aria-hidden="true"></i> </a>
+					</strong>
+					<span style="color: grey;">&#9679;</span>
+					<strong><a href="#" data-toggle="modal" data-target="#exampleModal">
 							<i class="fa fa-truck" data-toggle="tooltip" data-placement="top" title="Track Order" aria-hidden="true"></i></a>
-						</strong>
-					</td>
-				</tr>
-				{% endfor %}
-			</tbody>
-		</table>
-		{% else %}
-		<p class="mb-4">You have not placed any orders yet.</p>
-		<p><a href="{% url 'books' %}" class="btn btn-custom">Continue Shopping</a></p><br>
-		{% endif %}
-	</div>
+					</strong>
+				</td>
+			</tr>
+			{% endfor %}
+		</tbody>
+	</table>
+	{% else %}
+	<p class="m-4">You have not placed any orders yet.</p>
+	<p><a href="{% url 'books' %}" class="btn btn-custom">Continue Shopping</a></p><br>
+	{% endif %}
 </div>
+
 <!-- Modal -->
 <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
 	<div class="modal-dialog" role="document">
