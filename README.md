@@ -1,5 +1,7 @@
 # [Bookstore](https://**/)
 
+[![Build Status](https://travis-ci.org/pramcistudent/bookstore-milestone-four.svg?branch=master)](https://travis-ci.org/pramcistudent/bookstore-milestone-four)
+
 **Love Reading Books?**
 
 The Bookstore holds a vast collection of reading material from some of the greatest authors such William Shakespeare, Stephen King, J.K. Rowling and many many more, you'll be sure to find the book you are looking for.
@@ -227,7 +229,7 @@ Due to a change in my personal circumstances and with more time and knowledge, I
 
 #### Acknowledgements
 <!-- - I would like to thank my mentor [Guido Cecilio](https://github.com/guidocecilio) for all his help and support during the development of this project.
-- I would also like to thank other code institute students for sharing their projects which was extremely useful in designing this website. 
+- I would also like to thank other code institute students for sharing their projects which was extremely useful in designing this website.
 - Thanks to the Slack community for their feedback and help on how to debug my Python code. -->
 
 ### Disclaimer
