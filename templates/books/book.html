@@ -21,8 +21,12 @@
 			{% if book.stock <= 0 %}
 			<p><b>Out of Stock</b></p>
 			{% else %}
-			<a href="{% url 'cart:add_cart' book.id %}"><button class="btn btn-custom mb-4"><i class="fas fa-shopping-cart"></i> Add to Cart</button></a><br>
+			<a href="{% url 'cart:add_cart' book.id %}"><button class="btn btn-custom mb-4"><i
+						class="fas fa-shopping-cart"></i> Add to Cart</button></a><br>
 			{% endif %}
+			{% else %}
+			<p><b>Register <a href="{% url 'register' %}" data-toggle="tooltip" data-placement="top"
+						title="Click here to Register?">here</a> and buy this book!</b></p>
 			{% endif %}
 			<p><strong>Category:</strong> {{ book.category_name }}</p>
 			<p><strong>IBSN:</strong> {{ book.isbn }}</p>
@@ -37,8 +41,10 @@
 <div class="container">
 	<div row class="mb-5">
 		<div class="tab tab-border">
-			<button class="tablinks" onclick="multiTab(event, 'Reviews')" id="defaultOpen"><strong>Reviews</strong></button>
-			<button class="tablinks" onclick="multiTab(event, 'Write a review')"><strong>Write a review</strong></button>
+			<button class="tablinks" onclick="multiTab(event, 'Reviews')"
+				id="defaultOpen"><strong>Reviews</strong></button>
+			<button class="tablinks" onclick="multiTab(event, 'Write a review')"><strong>Write a
+					review</strong></button>
 		</div>
 
 		<div id="Reviews" class="tabcontent">
@@ -62,7 +68,9 @@
 					{% endfor %}
 					{% else %}
 					<div class="row pl-5">
-						<strong><p>No reviews are available.</p></strong>
+						<strong>
+							<p>No reviews are available.</p>
+						</strong>
 					</div>
 					{% endif %}
 				</div>
@@ -84,7 +92,8 @@
 					{% else %}
 					<div class="row p-5">
 						<h4><a class="custom-link" href="{% url 'login' %}">
-								<i class="fa fa-sign-in-alt fa-2x" data-toggle="tooltip" data-placement="top" title="Sign in" aria-hidden="true"></i>
+								<i class="fa fa-sign-in-alt fa" data-toggle="tooltip" data-placement="top"
+									title="Sign in" aria-hidden="true"></i>
 							</a> to write a review
 						</h4>
 					</div>
