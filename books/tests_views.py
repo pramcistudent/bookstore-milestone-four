@@ -3,26 +3,33 @@ from .models import Books
 from authors.models import Author
 
 # Create your tests here.
-class TestAccountsViews(TestCase):
+class TestBooksViews(TestCase):
+    
     def test_get_books_page(self):
         """
-        Tests to return a book
+        Tests that the browse books page view renders the books template
         """
-        response = self.client.get("/books/")
+        response = self.client.get('/books/')
         self.assertEqual(response.status_code, 200)
-        self.assertTemplateUsed(response, "books/books.html")
+        self.assertTemplateUsed(response, 'books/books.html')
 
-    def test_get_book_page_for_book_that_does_not_exist(self):
+    def test_get_book_page(self):
         """
-        Tests to return a book that doesn't exist
+        Tests that the book page view renders the book template
         """
-        response = self.client.get("/books/book/0")
-        self.assertEqual(response.status_code, 404)
+        author = Author(name="Test Author Name", photo="test.jpg")
+        author.save()
+        book = Books(title="Test Book Title", price=10.00,
+                     author_id=author.id, book_image="test.jpg")
+        book.save()
+
+        response = self.client.get("/books/book/1")
+        self.assertEqual(response.status_code, 200)
 
     def test_get_search_page(self):
         """
-        Tests that returns the search page
+        Tests that the search page view renders the search template
         """
-        response = self.client.get("/books/search")
+        response = self.client.get('/books/search')
         self.assertEqual(response.status_code, 200)
-        self.assertTemplateUsed(response, "books/search.html")
+        self.assertTemplateUsed(response, 'books/search.html')
