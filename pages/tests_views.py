@@ -1,11 +1,29 @@
-from django.test import TestCase
+from django.test import TestCase, Client
+
 
 # Create your tests here.
-class TestAccountsViews(TestCase):
-    def test_get_home_page(self):
-        """
-        Tests that user view redirects to the index template
-        """
-        response = self.client.get("/")
+class TestHomeView(TestCase):
+    def setUp(self):
+        self.client = Client()
+
+    def test_response_200(self):
+        response = self.client.get('/')
         self.assertEqual(response.status_code, 200)
-        self.assertTemplateUsed(response, "pages/index.html")
+
+    def test_loaded_templates(self):
+        response = self.client.get('/')
+        templates = response.templates
+        names = get_names(templates)
+
+        self.assertIn('base.html', str(names))
+        self.assertIn('pages/index.html', str(names))
+        self.assertIn('partials/_navbar.html', str(names))
+        self.assertIn('partials/_footer.html', str(names))
+
+
+# Helper functions
+def get_names(templates):
+    names = []
+    for t in templates:
+        names.append(t.name)
+    return names
