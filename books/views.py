@@ -21,7 +21,7 @@ def books(request):
 # return a single book
 def book(request, book_id):
     book = get_object_or_404(Books, pk=book_id)
-    reviews = Review.objects.filter().order_by("pub_date")
+    reviews = Review.objects.filter(book_id=book_id).order_by("pub_date")
     authors = book.author
     author = Author.objects.all().filter(name=True)
     if request.method == "POST":

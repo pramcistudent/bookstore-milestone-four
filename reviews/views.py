@@ -6,7 +6,7 @@ from django.contrib.auth.models import User
 from django.contrib.auth.decorators import login_required
 
 # Create your views here.
-def add_review(request, product_id):
+def add_review(request, book_id):
     book = get_object_or_404(Books, pk=book_id)
     if request.method == 'POST':
         form = ReviewForm(request.POST, request.FILES)
@@ -15,7 +15,7 @@ def add_review(request, product_id):
             review.book = book
             review.user = request.user
             review.save()
-            return render(request, 'add_review.html', {'form': form})
+            return render(request, {'form': form})
     else:
         form = ReviewForm()
-    return render(request, 'add_review.html', {'form': form})
+    return render(request, {'form': form})
