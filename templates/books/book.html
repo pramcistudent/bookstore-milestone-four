@@ -25,8 +25,8 @@
 						class="fas fa-shopping-cart"></i> Add to Cart</button></a><br>
 			{% endif %}
 			{% else %}
-			<p><b>Register <a href="{% url 'register' %}" data-toggle="tooltip" data-placement="top"
-						title="Click here to Register?">here</a> and buy this book!</b></p>
+			<p><strong>Register <a href="{% url 'register' %}" data-toggle="tooltip" data-placement="top"
+						title="Click here to Register">here</a> and buy this book!</strong></p>
 			{% endif %}
 			<p><strong>Category:</strong> {{ book.category_name }}</p>
 			<p><strong>IBSN:</strong> {{ book.isbn }}</p>
@@ -60,9 +60,9 @@
 						<p>{{ review.pub_date }}</p>
 					</div>
 					<div class="col-md-9 offset-3">
-						<br>
 						<p>{{ review.comment }}</p>
 					</div>
+					<hr>
 				</div>
 
 				<div class="review-comments mt-4">

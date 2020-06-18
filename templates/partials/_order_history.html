@@ -16,12 +16,18 @@
 				<td>{{ order.created | date:"D M Y" }}</td>
 				<td>£{{ order.total }}</td>
 				<td>
-					<strong><a href="{% url 'order:order_details' order.id %}">
-							<i class="fa fa-history" data-toggle="tooltip" data-placement="top" title="Order Details" aria-hidden="true"></i> </a>
+					<strong>
+						<a href="{% url 'order:order_details' order.id %}">
+							<i class="fa fa-history" data-toggle="tooltip" data-placement="top" 
+							title="Order Details" aria-hidden="true"></i>
+						</a>
 					</strong>
 					<span style="color: grey;">&#9679;</span>
-					<strong><a href="#" data-toggle="modal" data-target="#exampleModal">
-							<i class="fa fa-truck" data-toggle="tooltip" data-placement="top" title="Track Order" aria-hidden="true"></i></a>
+					<strong>
+						<a href="#" data-toggle="modal" data-target="#exampleModal">
+							<i class="fa fa-truck" data-toggle="tooltip" data-placement="top" 
+							title="Track Order" aria-hidden="true"></i>
+						</a>
 					</strong>
 				</td>
 			</tr>
@@ -53,5 +59,46 @@
 		</div>
 	</div>
 </div>
-<br>
-<br>
+
+<!-- pagination -->
+<div class="row">
+	<div class="col-md-12">
+		{% if order_details.has_other_pages %}
+		<ul class="pagination">
+			{% if order_details.has_previous %}
+			<li class="page-item">
+				<a href="?page={{ order_details.previous_page_number }}" class="page-link">
+					<i class="fas fa-angle-double-left"></i>
+				</a>
+			</li>
+			{% else %}
+			<li class="page-item disabled">
+				<a class="page-link"><i class="fas fa-angle-double-left"></i></a>
+			</li>
+			{% endif %}
+			{% for i in order_details.paginator.page_range %}
+			{% if order_details.number == i %}
+			<li class="page-item active">
+				<strong><a class="page-link">{{i}}</a></strong>
+			</li>
+			{% else %}
+			<li class="page-item">
+				<strong><a href="?page={{i}}" class="page-link">{{i}}</a></strong>
+			</li>
+			{% endif %}
+			{% endfor %}
+			{% if order_details.has_next %}
+			<li class="page-item">
+				<a href="?page={{ order_details.next_page_number }}" class="page-link">
+					<i class="fas fa-angle-double-right"></i>
+				</a>
+			</li>
+			{% else %}
+			<li class="page-item disabled">
+				<a class="page-link"><i class="fas fa-angle-double-right"></i></a>
+			</li>
+			{% endif %}
+		</ul>
+		{% endif %}
+	</div>
+</div>

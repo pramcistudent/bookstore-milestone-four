@@ -4,6 +4,8 @@ from django.contrib.auth.models import User
 from .forms import LoginForm, RegisterForm
 from order.models import Order, OrderItem
 from django.contrib.auth.decorators import login_required
+from django.core.paginator import EmptyPage, PageNotAnInteger, Paginator
+from django.http import HttpResponseRedirect
 
 
 # Create your views here.
@@ -77,6 +79,10 @@ def profile(request):
     # user's profile page
     if request.user.is_authenticated:
         email = str(request.user.email)
-        order_details = Order.objects.filter(emailAddress=email)
-    context = {"order_details": order_details}
+        order_details = Order.objects.filter(emailAddress=email).order_by("-created")
+        paginator = Paginator(order_details, 4)
+        page = request.GET.get("page")
+        paged_history = paginator.get_page(page)
+
+    context = {"order_details": paged_history, "order_details_all": order_details}
     return render(request, "accounts/profile.html", context)
