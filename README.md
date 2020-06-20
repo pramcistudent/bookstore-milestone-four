@@ -51,12 +51,11 @@ Bookstore is designed to give the user a clean modern experience with quick acce
 
 ### Wireframes
 I drew my wireframes using Powerpoint. I have different wireframes to show how to make my website/app responsive. The links to the files are below:
-- [Home]()
-- [Browse all books]()
-- [Book detail]()
-- [View cart]()
-- [Checkout]()
-- [Profile]()
+- [Home](https://github.com/pramcistudent/bookstore-milestone-four/blob/master/wireframes/Home%20Page.pdf)
+- [Browse all books](https://github.com/pramcistudent/bookstore-milestone-four/blob/master/wireframes/Browse%20Page.pdf)
+- [Book detail](https://github.com/pramcistudent/bookstore-milestone-four/blob/master/wireframes/Book%20Detail%20Page.pdf)
+- [View cart](https://github.com/pramcistudent/bookstore-milestone-four/blob/master/wireframes/Cart%20Page.pdf)
+- [Profile](https://github.com/pramcistudent/bookstore-milestone-four/blob/master/wireframes/Profile%20Page.pdf)
 
 ### Database Schema
 Before building my project, I created an Entity Relationship Diagram (ERD) to outline the database schema for the various tables that I would use.
