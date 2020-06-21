@@ -53,7 +53,7 @@ Bookstore is designed to give the user a clean modern experience with quick acce
 I drew my wireframes using Powerpoint. I have different wireframes to show how to make my website/app responsive. The links to the files are below:
 - [Home](https://github.com/pramcistudent/bookstore-milestone-four/blob/master/design/Home%20Page.pdf)
 - [Browse all books](https://github.com/pramcistudent/bookstore-milestone-four/blob/master/design/Browse%20Page.pdf)
-- [Book detail](https://github.com/pramcistudent/bookstore-milestone-four/blob/master/design/Book%20Detail%20Page.pdf)
+- [Book detail](https://github.com/pramcistudent/bookstore-milestone-four/blob/master/design/Book%20Page.pdf)
 - [View cart](https://github.com/pramcistudent/bookstore-milestone-four/blob/master/design/Cart%20Page.pdf)
 - [Profile](https://github.com/pramcistudent/bookstore-milestone-four/blob/master/design/Profile%20Page.pdf)
 
