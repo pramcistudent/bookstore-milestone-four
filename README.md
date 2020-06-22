@@ -189,6 +189,13 @@ Due to a change in my personal circumstances and with more time and knowledge, I
 - [Pep8 Online tool](http://pep8online.com/) was used to validate my Python syntax.
 
 ### Automated Testing
+The [Coverage](https://pypi.org/project/coverage/) library was used throughout testing to help keep track of how much of my code was covered by the tests. The tests provide an overall coverage of 76%.
+
+To generate your own coverage report install the package using `pip install coverage`
+- Run `coverage run manage.py test`
+- Then `coverage html` to generate the report
+- The report can be viewed in a browser by opening the `index.html` file from inside the `htmlcov` folder.
+
 
 ### Manual User Testing
 
