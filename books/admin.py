@@ -1,7 +1,8 @@
 from django.contrib import admin
 from books.models import Books
-
 # Register your models here.
+
+
 class BookAdmin(admin.ModelAdmin):
     list_display = ('id', 'title', 'is_published', 'price', 'stock', 'available', 'list_date', 'updated', 'author')
     list_display_links = ("id", "title")

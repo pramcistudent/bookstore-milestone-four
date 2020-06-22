@@ -1,8 +1,9 @@
 from django.db import models
 from books.models import Books
 from django.contrib.auth.models import User
-
 # Create your models here.
+
+
 class Review(models.Model):
     RATING_CHOICES = (
         (0, "0"),

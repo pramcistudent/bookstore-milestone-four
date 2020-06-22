@@ -5,10 +5,11 @@ from django.core.paginator import EmptyPage, PageNotAnInteger, Paginator
 from django.http import HttpResponseRedirect
 from reviews.forms import ReviewForm
 from reviews.models import Review
-
 # Create your views here.
-# return all books paginated to 6 on a page
+
+
 def books(request):
+    # return all books paginated to 6 on a page
     books = Books.objects.order_by("-list_date").filter(is_published=True)
     paginator = Paginator(books, 6)
     page = request.GET.get("page")

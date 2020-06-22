@@ -54,7 +54,7 @@
 					<a href="{% url 'book' book.id %}">
 						<img class="card-img-top" src="{{ book.book_image.url }}" alt="{{ book.title }}">
 					</a>
-					<h5>{{ book.title }}</h3>
+					<h5>{{ book.title }}</h5>
 						<p>{{ book.author }}</p>
 						{% if user.is_authenticated %}
 						{% if book.stock <= 0 %}

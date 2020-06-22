@@ -1,13 +1,14 @@
 from django.contrib import admin
 from .models import Order, OrderItem
-
 # Register your models here.
+
+
 class OrderItemAdmin(admin.TabularInline):
     model = OrderItem
     fieldsets = [
-        ("Book", {"fields": ["book"],}),
-        ("Quantity", {"fields": ["quantity"],}),
-        ("Price", {"fields": ["price"],}),
+        ("Book", {"fields": ["book"], }),
+        ("Quantity", {"fields": ["quantity"], }),
+        ("Price", {"fields": ["price"], }),
     ]
     readonly_fields = ["book", "quantity", "price"]
     can_delete = False
@@ -74,4 +75,3 @@ class OrderAdmin(admin.ModelAdmin):
 
     def has_add_permission(self, request):
         return False
-

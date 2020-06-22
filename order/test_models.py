@@ -1,7 +1,8 @@
 from django.test import TestCase
 from order.models import Order, OrderItem
-
 # Create your tests here.
+
+
 class TestOrderModel(TestCase):
 
     def test_billing_address(self):
@@ -70,9 +71,9 @@ class TestOrderItemModel(TestCase):
         multiplied by price
         '''
         order_id = Order(id=1, total=10.00)
-        order_id.save()        
+        order_id.save()
         sub_total = OrderItem(quantity=2,
-                              price=10.00, 
+                              price=10.00,
                               order=order_id)
         sub_total.save()
         self.assertEqual(sub_total.quantity * sub_total.price, 20.00)

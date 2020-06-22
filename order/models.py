@@ -1,6 +1,7 @@
 from django.db import models
-
 # Create your models here.
+
+
 class Order(models.Model):
     token = models.CharField(max_length=250, blank=True)
     total = models.DecimalField(
@@ -38,4 +39,3 @@ class OrderItem(models.Model):
 
     def __str__(self):
         return self.book
-

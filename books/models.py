@@ -1,8 +1,9 @@
 from datetime import datetime
 from django.db import models
 from authors.models import Author
-
 # Create your models here.
+
+
 class Books(models.Model):
     author = models.ForeignKey(Author, on_delete=models.DO_NOTHING)
     title = models.CharField(max_length=200)

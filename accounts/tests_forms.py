@@ -30,7 +30,7 @@ class TestRegisterForm(TestCase):
         form = RegisterForm({'first_name': ''})
         self.assertFalse(form.is_valid())
         self.assertEqual(form.errors['first_name'], [u'This field is required.'])
-  
+
     def test_message_for_missing_lastname(self):
         """
         Tests that the correct message is shown when lastname
@@ -69,7 +69,7 @@ class TestRegisterForm(TestCase):
 
     def test_message_for_missing_password_confirm(self):
         """
-        Tests that the correct message is shown when password reconfirm 
+        Tests that the correct message is shown when password reconfirm
         is missing from register form
         """
         form = RegisterForm({'password_confirm': ''})

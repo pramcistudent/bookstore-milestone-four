@@ -7,8 +7,9 @@ from order.models import Order, OrderItem
 import stripe
 from django.template.loader import get_template
 from django.core.mail import EmailMessage
-
 # Create your views here.
+
+
 def _cart_id(request):
     cart = request.session.session_key
     if not cart:
@@ -155,4 +156,3 @@ def full_remove(request, book_id):
 #         msg.send()
 #     except IOError as e:
 #         return e
-

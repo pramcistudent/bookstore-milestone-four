@@ -4,8 +4,9 @@ from .forms import ReviewForm
 from django.contrib.sessions.models import Session
 from django.contrib.auth.models import User
 from django.contrib.auth.decorators import login_required
-
 # Create your views here.
+
+
 def add_review(request, book_id):
     book = get_object_or_404(Books, pk=book_id)
     if request.method == 'POST':

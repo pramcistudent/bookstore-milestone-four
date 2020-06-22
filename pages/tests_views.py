@@ -1,7 +1,7 @@
 from django.test import TestCase, Client
-
-
 # Create your tests here.
+
+
 class TestHomeView(TestCase):
     def setUp(self):
         self.client = Client()

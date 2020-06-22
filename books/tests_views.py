@@ -1,10 +1,10 @@
 from django.test import TestCase
 from .models import Books
 from authors.models import Author
-
 # Create your tests here.
+
+
 class TestBooksViews(TestCase):
-    
     def test_get_books_page(self):
         """
         Tests that the browse books page view renders the books template

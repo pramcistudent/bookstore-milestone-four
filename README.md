@@ -11,8 +11,8 @@ The Bookstore holds a vast collection of reading material from some of the great
 1. [**Why This Project**](#why-this-project) 
 2. [**UX**](#ux)
     - [**User Stories**](#user-stories)
-    - [**Wireframes**](#Wireframes)
-    - [**Database Schema**](#design)
+    - [**Wireframes**](#wireframes)
+    - [**Database Schema**](#database-schema)
 3. [**Features**](#features)
     - [**Existing Features**](#existing-features)
     - [**Features Left to Implement**](#features-left-to-implement)
@@ -20,7 +20,11 @@ The Bookstore holds a vast collection of reading material from some of the great
     - [**Version Control**](#version-control)
     - [**Hosting**](#hosting)
 5. [**Testing**](#testing)
-
+    - [**Code Validation**](#code-validation)
+    - [**Automated Testing**](#automated-testing)
+    - [**Manual User Testing**](#manual-user-testing)
+    - [**Travis Continuous Integration**](#travis-continuous-integration)
+    - [**Interesting Bugs Or Problems**](#interesting-bugs-or-problems)
 6. [**Deployment**](#deployment)
     - [**Local Deployment**](#local-deployment)
     - [**Remote Deployment**](#remote-deployment)
@@ -61,6 +65,9 @@ I drew my wireframes using Powerpoint. I have different wireframes to show how t
 Before building my project, I created an Entity Relationship Diagram (ERD) to outline the database schema for the various tables that I would use.
 Link to the file is below:
 - [Bookstore Database Schema](https://github.com/pramcistudent/bookstore-milestone-four/blob/master/design/DB%20Schema.pdf)
+
+##### [back to top](#table-of-contents)
+---
 
 ## Features
 ### Existing Features
@@ -110,6 +117,7 @@ Link to the file is below:
 #### Profile - only available to logged in user
 - **Password** - Users can change their password by inputting the old password and then the new password which must be entered twice to check it has been input correctly.
 - **Order History**- Users are able to view a summary of their previous orders placed. Users can click on icon link 'View order' which provides a detail view of the selected order which can be printed. Users can click icon 'Track order' this feature is currently unavailable and is out of the scope of this project. Clicking the link opens a model to informs the user this feature is under development.
+- **Pagination** - Has been added to allow the user to see a list of 4 previous orders per page.
 
 #### 404 and 500 Error Pages
 -  I've included custom 404 and 500 error messages and error handlers to catch these errors. My custom messages allow the user to redirect back to the home page.
@@ -174,6 +182,19 @@ Due to a change in my personal circumstances and with more time and knowledge, I
 
 ## Testing
 
+### Code Validation
+- [W3C HTML Validator tool](https://validator.w3.org/#validate_by_input) was used to validate my HTML code.
+    - The W3C Validator tool doesn't recognise the Jinja templating, which has resulted in it showing a lot of errors in relation to the Jinja code. However, all other code is validating fine.
+- [W3C CSS Validator tool](https://jigsaw.w3.org/css-validator/#validate_by_input) was used to validate my CSS code.
+- [Pep8 Online tool](http://pep8online.com/) was used to validate my Python syntax.
+
+### Automated Testing
+
+### Manual User Testing
+
+### Travis Continuous Integration
+
+### Interesting Bugs Or Problems
 
 ##### [back to top](#table-of-contents)
 ---

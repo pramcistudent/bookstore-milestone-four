@@ -1,7 +1,8 @@
 from django.test import TestCase
 from books.models import Books
-
 # Create your tests here.
+
+
 class TestBookModel(TestCase):
 
     def test_create_book(self):
