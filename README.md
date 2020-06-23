@@ -1,4 +1,8 @@
-# [Bookstore](https://pram-bookstore.herokuapp.com/)
+<p align="center">
+  <img src="https://pram-bookstore.s3.eu-west-2.amazonaws.com/static/img/logo.png">
+</p>
+
+[Link to deployed site](https://pram-bookstore.herokuapp.com/)
 
 [![Build Status](https://travis-ci.org/pramcistudent/bookstore-milestone-four.svg?branch=master)](https://travis-ci.org/pramcistudent/bookstore-milestone-four)
 
