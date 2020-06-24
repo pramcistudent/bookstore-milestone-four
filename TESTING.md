@@ -87,21 +87,24 @@ Card Number - 4242 4242 4242 4242
 Expiry MM/YY - 01/21
 CVC - 111
 ```
-- Payment was successful using the Test Payment method and redirects to the `Thank You` page.
+- Payment was successful using the Test Payment method and redirects to the Thank You page.
 
 #### Profile Page
 
 ##### Profile Tab
-- Clicking the `change my password` button redirects to the correct page.
+- `Change my password` button redirects to the correct page.
 - Password reset form checks the old password matches the current  password in database. New password must be entered twice and is checked that it has been input correctly. An error is shown if the passwords do not match.
 - Confirmed the password reset change works and user is able to login using the new password.
 
 ##### Order History Tab
-- Clicking the `Order Details` link redirects to the correct page.
-- clicking the `Track Order` link brings up the pop up modal to inform user `This feature is currently under development`.
+- `Order Details` link redirects to the correct page.
+- `Track Order` link brings up the pop up modal to inform user "This feature is currently under development".
 - Tooltips appear when hovered over each icon.
 
 ##### Order Details Page
-- Clicking the `Back to Profile` button redirects to the correct page.
-- Clicking the `Print Order` brings up the correct print preview page.
+- `Back to Profile` button redirects to the correct page.
+- `Print Order` brings up the correct print preview page.
 - Printing the page was successful.
+
+---
+Return back to main [README.md](README.md)

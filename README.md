@@ -202,8 +202,10 @@ To generate your own coverage report install the package using `pip install cove
 
 
 ### Manual User Testing
+[Manual testing document](TESTING.md)
 
 ### Travis Continuous Integration
+In addition to the automated testing files, I used Travis CI for Continuous Integration testing of my code.
 
 ### Interesting Bugs Or Problems
 
