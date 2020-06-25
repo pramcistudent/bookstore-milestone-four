@@ -1,12 +1,12 @@
 <div class="text-center" style="background-color: #F1F1F1;">
 	{% if order_details %}
-	<table class="table">
+	<table class="table mobile-font">
 		<thead>
 			<tr>
 				<th>Order No</th>
 				<th>Order Date</th>
 				<th>Total</th>
-				<th></th>
+				<th>Print / Track</th>
 			</tr>
 		</thead>
 		<tbody>
@@ -15,14 +15,16 @@
 				<td>{{ order.id }}</td>
 				<td>{{ order.created | date:"D M Y" }}</td>
 				<td>£{{ order.total }}</td>
-				<td>
+				<td class="print-track-icons">
 					<strong>
 						<a href="{% url 'order:order_details' order.id %}">
 							<i class="fa fa-history" data-toggle="tooltip" data-placement="top" 
 							title="Order Details" aria-hidden="true"></i>
 						</a>
 					</strong>
+					&nbsp;
 					<span style="color: grey;">&#9679;</span>
+					&nbsp;
 					<strong>
 						<a href="#" data-toggle="modal" data-target="#exampleModal">
 							<i class="fa fa-truck" data-toggle="tooltip" data-placement="top" 

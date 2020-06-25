@@ -49,21 +49,29 @@
 
 		<div id="reviews" class="tabcontent">
 			<div class="row p-4">
-				<div class="review-comments mt-4">
+				<div class="review-comments">
 					{% if reviews %}
 					{% for review in reviews %}
-					<div class="col-md-3 user-review">
+					<div class="col-md-3 user-review" id="content-desktop-tablet">
 						<p><strong>{{ review.user }}</strong></p>
 						<p>Rated this book {{ review.rating }}/5</p>
 						<p>{{ review.pub_date }}</p>
 					</div>
-					<div class="col-md-9 offset-3">
+					<div class="col-md-9 offset-3" id="content-desktop-tablet">
 						<p>{{ review.comment }}</p>
 					</div>
-					<hr>
+					<hr class="mt-5" id="content-desktop-tablet">
+					<div class="col-12 mobile-user-review" id="content-mobile">
+						<p><strong>{{ review.user }}</strong></p>
+						<p>Rated this book {{ review.rating }}/5</p>
+						<p>{{ review.pub_date }}</p>
+					</div>
+					<div class="col-12 mobile-user-review" id="content-mobile">
+						<p>{{ review.comment }}</p>
+					</div>
 				</div>
 
-				<div class="review-comments mt-4">
+				<div class="review-comments">
 					{% endfor %}
 					{% else %}
 					<div class="row pl-5">

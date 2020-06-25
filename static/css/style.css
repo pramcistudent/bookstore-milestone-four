@@ -7,6 +7,18 @@
   padding: 0;
 }
 
+.profile-header,
+.featured-books-header,
+.browse-header,
+.cart-header {
+  font-size: 2rem;
+  font-weight: 500;
+}
+
+.book-title {
+  font-size: 1.25rem;
+}
+
 /* **************************************** HOME PAGE **************************************** */
 
 /* hompage */
@@ -120,7 +132,7 @@ a.nav-link {
 
 /* feature image */
 .card-img-top {
-  width: 200px;
+  width: auto;
   margin: 10% auto;
   height: 300px;
   box-shadow: 5px 5px 5px #666;
@@ -247,13 +259,29 @@ a.nav-link {
   width: 100%;
 }
 
+.review-comments {
+  margin-top: 1.5rem;
+}
+
 .user-review {
   float: left;
 }
 
 .user-review > p,
-.user-review > strong > p {
+.user-review > strong > p,
+.mobile-user-review > p,
+.mobile-user-review > strong > p {
   margin: 0;
+}
+
+@media screen and (max-width: 576px) {
+  p,
+  .user-review > p,
+  .user-review > strong > p,
+  .mobile-user-review > p,
+  .mobile-user-review > strong > p {
+  font-size: 0.8rem;
+  }
 }
 
 /* **************************************** REGISTER PAGE **************************************** */
@@ -303,6 +331,12 @@ a.nav-link {
   min-width: 400px;
 }
 
+@media screen and (max-width: 576px) {
+  .custom_table {
+    min-width: auto;
+  }
+}
+
 .table_head {
   background: rgb(254, 254, 254);
   background: radial-gradient(
@@ -328,7 +362,98 @@ a.nav-link {
 }
 
 /* stripe payment button */
-/* .stripe-button-el {
-  width: 100%;
+.stripe-button-el {
+  width: 162px;
   display: block;
-} */
+}
+
+@media (max-width: 425px) {
+  .stripe-button-el {
+    width: 137px;
+    display: block;
+  }
+}
+
+/* **************************************** PROFILE PAGE ***************************************** */
+
+td.print-track-icons {
+  display: inline-flex;
+}
+
+#content-desktop-tablet {display: block;}
+#content-mobile {display: none;}  
+
+@media screen and (max-width: 425px) {
+  #content-desktop-tablet {display: none;}
+  #content-mobile {display: inline;}
+}
+
+@media (max-width: 800px) {
+  .carousel-item img {
+  height: 275px !important;
+  }
+}
+
+@media (max-width: 425px) {
+  .carousel-item img {
+  height: 150px !important;
+  }
+}
+
+@media (max-width: 800px) {
+  .card-img-top {
+    width: auto;
+    margin: 10% auto;
+    height: 150px;
+  }
+}
+
+@media screen and (max-width: 425px) {
+  .profile-header,
+  .featured-books-header,
+  .browse-header,
+  .cart-header {
+    font-size: 1.5rem;
+    font-weight: 500;
+  }
+}
+
+@media screen and (max-width: 425px) {
+  button.tablinks,
+  ul.pagination,
+  .btn-custom,
+  .mobile-font {
+    font-size: 13px;
+  }
+}
+
+@media screen and (max-width: 425px) {
+  .book-title {
+    font-size: 1rem;
+  }
+}
+
+@media screen and (max-width: 425px) {
+  .mobile-card {
+    margin: 1.5rem;
+  }
+}
+
+@media screen and (max-width: 425px) {
+  .btn-width {
+    width: auto;
+  }  
+}
+
+@media screen and (max-width: 425px) {
+  .review-comments {
+    margin-top: 0;
+  }
+}
+
+@media screen and (max-width: 425px) {
+  .btn-custom {
+    font-size: 13px;
+    height: 35px;
+  }
+}

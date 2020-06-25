@@ -44,12 +44,12 @@
 </div>
 
 <section class="section-3">
-	<div class="container mt-4">
-		<h2 class="text-center mt-4 mb-4">Featured Books</h2>
-		<div class="row mt-4 mb-4">
+	<div class="container">
+		<p class="text-center featured-books-header">Featured Books</p>
+		<div class="row mb-4">
 			{% if books %}
 			{% for book in books %}
-			<div class=" col-md-4 mt-4 mb-4">
+			<div class="col-md-4 mb-4 mobile-card">
 				<div class="card text-center">
 					<a href="{% url 'book' book.id %}">
 						<img class="card-img-top" src="{{ book.book_image.url }}" alt="{{ book.title }}">

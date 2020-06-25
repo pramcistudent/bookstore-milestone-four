@@ -4,7 +4,7 @@
 
 <div class="container">
 	<a href="{% url 'books' %}" class="mt-4 btn btn-custom"><i class="fas fa-arrow-left"></i> Reset</a>
-	<div class="card p-4 mt-4 mb-4 search-card">
+	<div class="card p-4 mt-4 mb-4 search-card mobile-card">
 		<h4 class="text-center">Search</h4>
 		<form action="{% url 'search' %}" form-group>
 			<div class="row">
@@ -33,7 +33,7 @@
 		<div class="row mt-4 mb-4">
 			{% if books %}
 			{% for book in books %}
-			<div class="col-md-4 mt-4 mb-4">
+			<div class="col-md-4 mt-4 mb-4 mobile-card">
 				<div class="card text-center">
 					<a href="{% url 'book' book.id %}">
 						<img class="card-img-top" src="{{ book.book_image.url }}" alt="{{ book.title }}">
