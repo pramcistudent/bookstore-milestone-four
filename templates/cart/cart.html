@@ -6,16 +6,16 @@
 	{% if not cart_items %}
 	<div>
 		<br>
-		<p class="text-center my_title cart-header">
+		<p class="text-center cart-header">
 			Your shopping cart is empty
 		</p>
 		<h4 class="text-center">Please click <a href="{% url 'books' %}">here</a> to continue shopping.</h4>
 	</div>
 	{% else %}
 	<div>
-		<div class="text-center cart-header">
+		<div>
 			<br>
-			<p>Your shopping cart</p>
+			<p class="text-center cart-header">Your shopping cart</p>
 		</div>
 	</div>
 	<div class="row mx-auto">
