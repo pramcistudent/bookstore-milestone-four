@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>New Order #{{ transaction.id }} - Bookstore</title>
+		<style>
+			table {
+				width: 60%;
+				margin: 0 auto;
+				border-collapse: collapse;
+			}
+			table tr td {
+        		padding-left: 10px;
+        		padding-right: 10px;
+				border: 1px solid #c1c1c1;
+			}
+			p {
+				padding-right: 50px;
+				padding-left: 50px;
+      		}
+			.logo {
+				border-radius: 50%;
+				background-color: black;
+			}
+		</style>
+	</head>
+	<body>
+		<center>
+      <img class="mb-4" src="https://pram-bookstore.s3.eu-west-2.amazonaws.com/static/img/logo.png" class="logo" alt="Bookstore logo">
+			<h1>Thanks for shopping with us</h1>
+			<p>
+				This email is to confirm that you have placed an order with Bookstore.<br>
+				Please review your order details to check they are correct.
+			</p>
+		</center>
+		<br>
+		<table>
+			<tr>
+				<td valign="top" colspan="2" style="width: 50%;">
+					<b>Bill to:</b><br>
+					{{ transaction.billingName }}<br>
+					{{ transaction.billingAddress1 }}<br>
+					{{ transaction.billingCity }}<br>
+					{{ transaction.billingPostcode }}<br>
+					{{ transaction.billingCountry }}<br>
+				</td>
+				<td valign="top" colspan="2" style="width: 50%;">
+					<b>Order: </b>#{{ transaction.id }}<br>
+					<b>Date: </b>{{ transaction.created|date:"D M Y" }}
+				</td>
+			</tr>
+			<tr>
+				<td><b>Product Description</b></td>
+				<td><b>Qty</b></td>
+				<td><b>Unit Price</b></td>
+				<td><b>Sub-Total</b></td>
+			</tr>
+			{% for item in order_items %}
+			<tr>
+				<td>{{ item.book }}</td>
+				<td>{{ item.quantity }}</td>
+				<td>£{{ item.price }}</td>
+				<td>£{{ item.sub_total }}</td>
+			</tr>
+			{% endfor %}
+			<tr>
+				<td colspan="3" style="text-align: right;"><b>Total</b></td>
+				<td>£{{ transaction.total }}</td>
+			</tr>
+			<tr>
+				<td colspan="3" style="text-align: right;"><b>Total paid</b></td>
+				<td>£{{ transaction.total }}</td>
+			</tr>
+			<tr>
+				<td valign="top" colspan="2" style="width: 50%;">
+					<b>Ship to:</b><br>
+					{{ transaction.shippingName }}<br>
+					{{ transaction.shippingAddress1 }}<br>
+					{{ transaction.shippingCity }}<br>
+					{{ transaction.shippingPostcode }}<br>
+					{{ transaction.shippingCountry }}<br>		
+				</td>
+				<td valign="top" colspan="2" style="width: 50%;">
+					<b>Payment details:</b><br>
+					£{{ transaction.total }} was successfully paid using Stripe.
+				</td>
+			</tr>
+		</table>
+		<center>
+			<br>
+			<p>
+				Registered customers can view their order history on the profile page.
+				<br> 
+				Would you like to <a href="https://pram-bookstore.herokuapp.com/accounts/login/">Sign-in?</a>
+				<br>
+				Don't have an account would you like to 
+				<a href="https://bookit-online-book-store.herokuapp.com/accounts/register">Sign-up?</a>
+			</p>
+		</center>
+	</body>
+</html>
