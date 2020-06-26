@@ -102,23 +102,25 @@ def cart_detail(request, total=0, counter=0, cart_items=None):
                     books.stock = int(order_item.book.stock - order_item.quantity)
                     books.save()
                     order_item.delete()
+
+                try:
+                    sendEmail(order_details.id)
+                    print ("The order email has been sent to the customer.")
+                except IOError as e:
+                    return e
                 return redirect("order:thanks", order_details.id)
             except ObjectDoesNotExist:
                 pass
         except stripe.error.CardError as e:
-            return False, e
-    return render(
-        request,
-        "cart/cart.html",
-        dict(
-            cart_items=cart_items,
-            total=total,
-            counter=counter,
-            data_key=data_key,
-            stripe_total=stripe_total,
-            description=description,
-        ),
-    )
+            return (False, e)
+    return render(request, "cart/cart.html", dict(
+        cart_items=cart_items,
+        total=total,
+        counter=counter,
+        data_key=data_key,
+        stripe_total=stripe_total,
+        description=description,
+        ))
 
 
 def cart_remove(request, book_id):
@@ -141,18 +143,18 @@ def full_remove(request, book_id):
     return redirect("cart:cart_detail")
 
 
-# def sendEmail(order_id):
-#     transaction = Order.objects.get(id=order_id)
-#     order_items = OrderItem.objects.filter(order=transaction)
-#     try:
-#         """Sending the order"""
-#         subject = "Bookstore - New Order #{}".format(transaction.id)
-#         to = ["{}".format(transaction.emailAddress)]
-#         from_email = "orders@bookstore.com"
-#         order_information = {"transaction": transaction, "order_items": order_items}
-#         message = get_template("email/email.html").render(order_information)
-#         msg = EmailMessage(subject, message, to=to, from_email=from_email)
-#         msg.content_subtype = "html"
-#         msg.send()
-#     except IOError as e:
-#         return e
+def sendEmail(order_id):
+    transaction = Order.objects.get(id=order_id)
+    order_items = OrderItem.objects.filter(order=transaction)
+    try:
+        """Sending the order"""
+        subject = "Bookstore - New Order #{}".format(transaction.id)
+        to = ["{}".format(transaction.emailAddress)]
+        from_email = "orders@bookstore.com"
+        order_information = {"transaction": transaction, "order_items": order_items}
+        message = get_template("email/email.html").render(order_information)
+        msg = EmailMessage(subject, message, to=to, from_email=from_email)
+        msg.content_subtype = "html"
+        msg.send()
+    except IOError as e:
+        return e
