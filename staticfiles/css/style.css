@@ -1,0 +1,468 @@
+/* google fonts */
+@import url("https://fonts.googleapis.com/css?family=Noto+Serif|Roboto&display=swap");
+
+/* browser reset margins & paddings */
+* {
+  margin: 0;
+  padding: 0;
+}
+
+.profile-header,
+.featured-books-header,
+.browse-header,
+.cart-header {
+  font-size: 2rem;
+  font-weight: 500;
+}
+
+@media screen and (max-width: 425px) {
+  .profile-header,
+  .featured-books-header,
+  .browse-header,
+  .cart-header {
+    font-size: 1.5rem;
+    font-weight: 500;
+  }
+}
+
+/* **************************************** HOME PAGE **************************************** */
+
+/* hompage */
+body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+/* background image */
+.bg {
+  background-image: url("https://cdn.pixabay.com/photo/2016/02/11/01/53/wall-paper-1193001_960_720.jpg");
+  height: 100%;
+  background-position: center;
+  background-repeat: repeat;
+}
+
+/* navigation */
+.navbar {
+  background-color: #212529;
+  color: #fff;
+  text-transform: uppercase;
+}
+
+a.nav-link {
+  font-family: "Roboto";
+}
+
+/* carousel */
+.carousel-item img {
+  height: 450px !important;
+}
+
+@media (max-width: 800px) {
+  .carousel-item img {
+  height: 275px !important;
+  }
+}
+
+@media (max-width: 425px) {
+  .carousel-item img {
+  height: 150px !important;
+  }
+}
+
+/* footer */
+#main-footer {
+  background-color: #212529;
+  color: #fff;
+  flex: 0 0 50px;
+  margin-top: auto;
+  bottom: 0;
+}
+
+.footer-img {
+  margin-bottom: 10px;
+  width: 10%;
+}
+
+.social a {
+  color: #fff;
+  margin: 2px;
+}
+
+.fa-twitter:focus,
+.fa-twitter:hover {
+  color: #00aced;
+  -webkit-transition: color 1s ease-out;
+  -moz-transition: color 1s ease-out;
+  -o-transition: color 1s ease-out;
+  transition: color 1s ease-out;
+}
+
+.fa-facebook:focus,
+.fa-facebook:hover {
+  color: #3b5998;
+  -webkit-transition: color 1s ease-out;
+  -moz-transition: color 1s ease-out;
+  -o-transition: color 1s ease-out;
+  transition: color 1s ease-out;
+}
+
+.fa-linkedin:focus,
+.fa-linkedin:hover {
+  color: #007bb6;
+  -webkit-transition: color 1s ease-out;
+  -moz-transition: color 1s ease-out;
+  -o-transition: color 1s ease-out;
+  transition: color 1s ease-out;
+}
+
+.fa-instagram:focus,
+.fa-instagram:hover {
+  color: #517fa4;
+  -webkit-transition: color 1s ease-out;
+  -moz-transition: color 1s ease-out;
+  -o-transition: color 1s ease-out;
+  transition: color 1s ease-out;
+}
+
+.fa-pinterest:focus,
+.fa-pinterest:hover {
+  color: #cb2027;
+  -webkit-transition: color 1s ease-out;
+  -moz-transition: color 1s ease-out;
+  -o-transition: color 1s ease-out;
+  transition: color 1s ease-out;
+}
+
+.p {
+  font-family: "Noto Serif";
+}
+
+/* **************************************** BROWSE ALL BOOKS PAGE **************************************** */
+
+.search-card {
+  background-color: #f8f9fa;
+}
+
+.btn-width {
+  width: 30%;
+}
+
+@media screen and (max-width: 425px) {
+  .btn-width {
+    width: auto;
+  }  
+}
+
+/* feature image */
+.card-img-top {
+  width: auto;
+  margin: 10% auto;
+  height: 300px;
+  box-shadow: 5px 5px 5px #666;
+}
+
+.card {
+  background-color: #f8f9fa;
+  border-radius: 8px;
+}
+
+/* button */
+.btn-custom {
+  background-image: -webkit-linear-gradient(#28a0e5, #1c8ccc);
+  color: rgb(255, 255, 255);
+  margin: auto;
+  border-radius: 8px;
+  height: 40px;
+}
+@media screen and (max-width: 425px) {
+  .btn-custom {
+    font-size: 13px;
+    height: 35px;
+  }
+}
+
+.btn-custom:hover {
+  background-image: -webkit-linear-gradient(#28a0e5, #1c8ccc);
+  color: rgb(255, 255, 255);
+}
+
+/* pagination */
+.page-link {
+  color: #1c8ccc;
+}
+
+.page-item.active .page-link {
+  z-index: 1;
+  color: #fff;
+  background-color: #1c8ccc;
+  border-color: #1c8ccc;
+}
+
+.pagination {
+  display: flex;
+  padding-left: 0px;
+  list-style: none;
+  border-radius: 0.25rem;
+  justify-content: center;
+}
+
+/* **************************************** SINGLE BOOK PAGE **************************************** */
+
+.book-cover-image {
+  width: 100%;
+  box-shadow: 5px 5px 5px #666;
+}
+@media screen and (max-width: 425px) {
+  .book-cover-image {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
+  }
+}
+
+.book-author-image {
+  width: 15%;
+  border-radius: 5px;
+  float: left;
+}
+
+/* Style the tab */
+.tab {
+  overflow: hidden;
+  border: 1px solid rgb(210, 210, 210);
+  background-color: #ccc;
+}
+
+/* Style the buttons inside the tab */
+.tab button {
+  background-color: inherit;
+  width: 50%;
+  float: left;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  padding: 14px 16px;
+  transition: 0.3s;
+  font-size: 17px;
+}
+
+/* Change background color of buttons on hover */
+.tab button:hover {
+  background-color: #a0a4a9;
+}
+
+/* Create an active/current tablink class */
+.tab button.active {
+  background-color: #f1f1f1;
+}
+
+/* Style the tab content */
+.tabcontent {
+  display: none;
+  padding: 0 12px;
+  border-radius: 0 0 8px 8px;
+  background-color: #f1f1f1;
+  border: 1px solid rgb(210, 210, 210);
+  -webkit-animation: fadeEffect 1s;
+  animation: fadeEffect 1s;
+}
+
+.tab-border {
+  border-radius: 8px 8px 0 0;
+}
+
+/* Fade in tabs */
+@-webkit-keyframes fadeEffect {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes fadeEffect {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.review-form,
+.review-comments {
+  width: 100%;
+}
+
+.review-comments {
+  margin-top: 1.5rem;
+}
+
+@media screen and (max-width: 425px) {
+  .review-comments {
+    margin-top: 0;
+  }
+}
+
+.user-review {
+  float: left;
+}
+
+.user-review > p,
+.user-review > strong > p,
+.mobile-user-review > p,
+.mobile-user-review > strong > p {
+  margin: 0;
+}
+
+@media screen and (max-width: 576px) {
+  p,
+  .user-review > p,
+  .user-review > strong > p,
+  .mobile-user-review > p,
+  .mobile-user-review > strong > p {
+  font-size: 0.8rem;
+  }
+}
+
+.book-title {
+  font-size: 1.25rem;
+}
+
+@media screen and (max-width: 425px) {
+  .book-title {
+    font-size: 1rem;
+  }
+}
+
+/* **************************************** REGISTER PAGE **************************************** */
+
+.card-header {
+  background-color: #fab567;
+  color: #fff;
+}
+
+/* **************************************** PASSWORD RESET PAGES **************************************** */
+
+.form-signin {
+  width: 100%;
+  padding: 15px;
+  margin: auto;
+}
+
+.form-signin .checkbox {
+  font-weight: 400;
+}
+
+.form-signin .form-control {
+  position: relative;
+  box-sizing: border-box;
+  height: auto;
+  padding: 10px;
+  font-size: 16px;
+}
+
+.form-signin .form-control:focus {
+  z-index: 2;
+}
+
+.form-signin input[type="password"] {
+  margin-bottom: 10px;
+  border-bottom-right-radius: 0;
+  border-bottom-left-radius: 0;
+}
+
+.change-password {
+  width: 550px;
+}
+
+/* **************************************** CART PAGE ***************************************** */
+
+.custom_table {
+  min-width: 400px;
+}
+
+@media screen and (max-width: 576px) {
+  .custom_table {
+    min-width: auto;
+  }
+}
+
+.table_head {
+  background: rgb(254, 254, 254);
+  background: radial-gradient(
+    circle,
+    rgba(254, 254, 254, 1) 0%,
+    rgba(189, 189, 189, 1) 100%
+  );
+}
+
+.custom_image {
+  width: 75px;
+  height: 100px;
+  box-shadow: 3px 3px 3px #666;
+}
+
+.custom_a {
+  text-decoration: none;
+}
+
+.custom_icon {
+  text-decoration: none;
+  color: #007bff;
+}
+
+/* stripe payment button */
+.stripe-button-el {
+  width: 162px;
+  display: block;
+}
+
+@media (max-width: 425px) {
+  .stripe-button-el {
+    width: 137px;
+    display: block;
+  }
+}
+
+/* **************************************** PROFILE PAGE ***************************************** */
+
+td.print-track-icons {
+  display: inline-flex;
+}
+
+/* **************************************** MEDIA VIEW ***************************************** */
+
+#content-desktop-tablet {display: block;}
+#content-mobile {display: none;}  
+
+@media screen and (max-width: 425px) {
+  #content-desktop-tablet {display: none;}
+  #content-mobile {display: inline;}
+}
+
+@media (max-width: 800px) {
+  .card-img-top {
+    width: auto;
+    margin: 10% auto;
+    height: 150px;
+  }
+}
+
+@media screen and (max-width: 425px) {
+  button.tablinks,
+  ul.pagination,
+  .btn-custom,
+  .mobile-font {
+    font-size: 13px;
+  }
+}
+
+@media screen and (max-width: 425px) {
+  .mobile-card {
+    margin: 2.5rem;
+  }
+}
