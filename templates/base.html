@@ -6,6 +6,8 @@
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<meta name=description
+    	content="Website for buying books and creating book reviews">
 	<!-- Favicon Image -->
 	<link rel="icon" href="{% static 'img/favicon.ico' %}" type="image/x-icon" />
 	<!-- Font Awesome -->
@@ -27,14 +29,19 @@
 	<!-- Footer -->
 	{% include 'partials/_footer.html' %}
 
+	<!-- jQuery script tag -->
 	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+	<!-- Bootstrap script tag -->
 	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+	<!-- Custom JS file script tag -->
+    <script src="{% static '/js/script.js' %}"></script>
 	<script>
-		//Confirm remove from cart request
-		$('.delete').click(function () {
-			return confirm("Are you sure you want to remove the item from cart?");
-		});
-	</script>
+		setTimeout(function(){
+		  if ($('#message').length > 0) {
+			$('#message').remove();
+		  }
+		}, 3000)
+	  </script>
 </body>
 
 </html>
