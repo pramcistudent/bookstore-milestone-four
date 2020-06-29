@@ -1,16 +1,13 @@
-// Alert message timeout after 3 seconds
-setTimeout(function() {
-  $('#message').fadeOut('slow');
-}, 3000);
-
-// base.html
-// Confirm remove from cart request by user
+/*
+* Confirmation pop up to remove item from cart
+*/ 
 $('.delete').click(function () {
   return confirm("Are you sure you want to remove the item from cart?");
 });
 
-// profile page & book detail page
-// Multitab function for profile and review pages
+/* 
+* Multitab function for profile and review page
+*/
 function multiTab(evt, tabName) {
   var i, tabcontent, tablinks;
   tabcontent = document.getElementsByClassName("tabcontent");
