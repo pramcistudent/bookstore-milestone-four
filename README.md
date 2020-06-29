@@ -109,7 +109,7 @@ Link to the file is below:
 
 #### Thank You - after completing payment redirect the user to the Thank You page
 - **Thank You page** - User receives confirmation that the order has been placed and is given a order reference number.
-- **Email** - This function has not been implemented due to an error with connecting to Gmail. An issue ticket has been raised with Gmail support.
+- **Email** - User receives email confirmation there order has been placed and receives a order summary.
 
 #### Registration - allow new user to register for an account
 - **Register** - User must provide a unique username and email address, which are checked against existing entries in the database. A password is required, which must be entered twice to check it has been input correctly.
@@ -129,7 +129,7 @@ Link to the file is below:
 ### Features Left to Implement
 Due to a change in my personal circumstances and with more time and knowledge, I would have liked to implement some additional features to the app:
 - **Track my order** - This feature is currently out of the scope of this project. I have added a link to the project to show potential of how it could be used. I feel this is an important feature to have, a user making any purchase online would generally want to be able to track there order.
-- **Email confirmation** - As with all online purchases email confirmation should be sent to a user detailing out a summary of the purchase. Currently not implemented due to an issue with connecting to Gmail. An issue ticket has been raised with Gmail support.
+- **Star Rating** - Currently the user review rating is implemented using a dropdown menu and I would like to change this on a future update to a clickable star rating.
 
 ##### [back to top](#table-of-contents)
 ---

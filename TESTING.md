@@ -88,6 +88,7 @@ Expiry MM/YY - 01/21
 CVC - 111
 ```
 - Payment was successful using the Test Payment method and redirects to the Thank You page.
+- Confirmed email is generated on successfully processing an order and is sent to the specified user email account.
 
 #### Profile Page
 
