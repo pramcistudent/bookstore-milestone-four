@@ -32,7 +32,9 @@
 					{% for cart_item in cart_items %}
 					<tr>
 						<td>
-							<img src="{{cart_item.book.book_image.url}}" alt="{{ cart_item.book.title }}" class="float-left rounded custom_image">
+							<img src="{{cart_item.book.book_image.url}}" 
+							alt="{{ cart_item.book.title }}" 
+							class="float-left rounded custom_image">
 						</td>
 						<td class="text-left">
 							<strong>{{ cart_item.book.title }}</strong>
@@ -48,26 +50,31 @@
 						{% if cart_item.quantity < cart_item.book.stock %}
 						<td>
 							<a href="{% url 'cart:add_cart' cart_item.book.id %}" class="custom_a">
-								<i class="fas fa-plus-circle custom_icon" title="Add"></i>
+								<i class="fas fa-plus-circle custom_icon" aria-hidden="true"title="Add"></i>
+								<span class="sr-only">Increase quantity</span>
 							</a>
 							&nbsp;
 							<a href="{% url 'cart:cart_remove' cart_item.book.id %}" class="custom_a">
-								<i class="fas fa-minus-circle custom_icon" title="Minus"></i>
+								<i class="fas fa-minus-circle custom_icon" aria-hidden="true" title="Minus"></i>
+								<span class="sr-only">Decrease quantity</span>
 							</a>
 							&nbsp;
 							<a href="{% url 'cart:full_remove' cart_item.book.id %}" class="delete custom_a">
-								<i class="fas fa-trash-alt custom_icon" title="Remove"></i>
+								<i class="fas fa-trash-alt custom_icon" aria-hidden="true" title="Remove"></i>
+								<span class="sr-only">Remove item</span>
 							</a>
 							&nbsp;
 						</td>
 						{% else %}
 						<td>
 							<a href="{% url 'cart:cart_remove' cart_item.book.id %}" class="custom_a">
-								<i class="fas fa-minus-circle custom_icon" title="Minus"></i>
+								<i class="fas fa-minus-circle custom_icon" aria-hidden="true" title="Minus"></i>
+								<span class="sr-only">Decrease quantity</span>
 							</a>
 							&nbsp;
 							<a href="{% url 'cart:full_remove' cart_item.book.id %}" class="delete custom_a">
-								<i class="fas fa-trash-alt custom_icon" title="Remove"></i>
+								<i class="fas fa-trash-alt custom_icon" aria-hidden="true" title="Remove"></i>
+								<span class="sr-only">Remove item</span>
 							</a>
 						</td>
 						<td></td>

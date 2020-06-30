@@ -23,8 +23,8 @@
 				<div class="col-md-4">
 					<input type="text" name="category-name" placeholder="by category" class="form-control">
 				</div>
-				<button type="submit" class="btn btn-custom btn-width btn-sm mt-4"><i class="fas fa-search"></i>
-					Search</button>
+				<button type="submit" class="btn btn-custom btn-width btn-sm mt-4">
+					<i class="fas fa-search" aria-hidden="true"></i>&nbsp;Search</button>
 			</div>
 		</form>
 	</div>
@@ -45,7 +45,7 @@
 					<p><b>Out of Stock</b></p>
 					{% else %}
 					<a href="{% url 'cart:add_cart' book.id %}">
-						<button class="btn btn-custom mb-4"><i class="fas fa-shopping-cart"></i>
+						<button class="btn btn-custom mb-4"><i class="fas fa-shopping-cart" aria-hidden="true"></i>
 							Add to Cart
 						</button>
 					</a>

@@ -6,15 +6,20 @@
 	<h1 class="text-center profile-header">Welcome {{ user.username }}</h1>
 	<div row class="mb-5 mt-4">
 		<div class="tab tab-border">
-			<button class="tablinks" onclick="multiTab(event, 'Profile')"><strong>Profile</strong></button>
-			<button class="tablinks" onclick="multiTab(event, 'Order History')" id="defaultOpen"><strong>Order History</strong></button>
+			<button class="tablinks" onclick="multiTab(event, 'Profile')"
+				role="tab" aria-selected="false" aria-controls="profile-tab">
+				<strong>Profile</strong></button>
+			<button class="tablinks" onclick="multiTab(event, 'Order History')" id="defaultOpen"
+				role="tab" aria-selected="true" aria-controls="order-history-tab">
+				<strong>Order History</strong></button>
 		</div>
 
 		<div id="Profile" class="tabcontent">
 			<div class="text-center p-3 mobile-font">
 				<div class="">
 					<p><strong>Registered email: </strong>{{ user.email }}</p>
-					<a href="{% url 'password_change' %}"><button class="btn btn-custom mb-4"><i class="fa fa-lock"></i> Change my password</button></a>
+					<a href="{% url 'password_change' %}"><button class="btn btn-custom mb-4">
+						<i class="fa fa-lock" aria-hidden="true"></i> Change my password</button></a>
 				</div>
 			</div>
 		</div>

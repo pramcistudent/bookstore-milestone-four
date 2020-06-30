@@ -21,8 +21,8 @@
 			{% if book.stock <= 0 %}
 			<p><b>Out of Stock</b></p>
 			{% else %}
-			<a href="{% url 'cart:add_cart' book.id %}"><button class="btn btn-custom mb-4"><i
-						class="fas fa-shopping-cart"></i> Add to Cart</button></a><br>
+			<a href="{% url 'cart:add_cart' book.id %}"><button class="btn btn-custom mb-4">
+				<i class="fas fa-shopping-cart" aria-hidden="true"></i> Add to Cart</button></a><br>
 			{% endif %}
 			{% else %}
 			<p><strong>Register <a href="{% url 'register' %}" data-toggle="tooltip" data-placement="top"
@@ -41,10 +41,14 @@
 <div class="container">
 	<div row class="mb-5">
 		<div class="tab tab-border">
-			<button class="tablinks" onclick="multiTab(event, 'reviews')"
-				id="defaultOpen"><strong>Reviews</strong></button>
-			<button class="tablinks" onclick="multiTab(event, 'write-a-review')"><strong>Write a
-					review</strong></button>
+			<button class="tablinks" onclick="multiTab(event, 'reviews')" id="defaultOpen"
+				role="tab" aria-selected="true" aria-controls="reviews-tab">
+				<strong>Reviews</strong>
+			</button>
+			<button class="tablinks" onclick="multiTab(event, 'write-a-review')"
+				role="tab" aria-selected="false" aria-controls="write-tab">
+				<strong>Write a review</strong>
+			</button>
 		</div>
 
 		<div id="reviews" class="tabcontent">
