@@ -368,11 +368,19 @@ Once the migrations are completed and the super user has been created successful
 
 ## Credits
 #### Content
+- The Author content was sourced using [Google](https://www.google.com) search and by researching each individual Author.
+- Information about each book was sourced using the online [Waterstones](https://www.waterstones.com/) E-commerce site.
 
+#### Media
+- The site Logo was created be using [Free Logo Design](https://www.freelogodesign.org/) site.
+- I found the Favicon image on Google, and I used the [Favicon.io](https://favicon.io/) converter to convert the image to a Favicon.
+- Carousel images were sourced from the [Google](https://www.google.com/search?q=book+images&tbm=isch&ved=2ahUKEwinuaq1zqnqAhUF0oUKHU2XAVYQ2-cCegQIABAA&oq=book+images&gs_lcp=CgNpbWcQAzIECCMQJzICCAAyAggAMgIIADICCAAyAggAMgIIADICCAAyAggAMgIIAFCsJ1jGM2C1NWgBcAB4AIABiAGIAcAFkgEDNi4ymAEAoAEBqgELZ3dzLXdpei1pbWc&sclient=img&ei=zDn7XqejBoWklwTNroawBQ&bih=625&biw=1024&safe=active&hl=en) images pages.
+- Images for each book were sourced by using the online [Waterstones](https://www.waterstones.com/) E-commerce site.
+- Images were converted from PNG files to JPG files by using [PNG2JPG](https://png2jpg.com/) site and re-seized by using [Pixlr](https://pixlr.com/x/) site.
 
 #### Acknowledgements
-<!-- - I would like to thank my mentor [Guido Cecilio](https://github.com/guidocecilio) for all his help and support during the development of this project.
-- Thanks to the Slack community for their feedback and help on how to debug my Python code. -->
+- I would like to thank my mentor [Guido Cecilio](https://github.com/guidocecilio) for his feedback on my project's scope, design and functionality.
+- Thanks to the Slack community for their feedback and help on how to debug my Python code.
 
 ### Disclaimer
 This project is for educational purposes only.
