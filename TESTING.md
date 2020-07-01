@@ -7,7 +7,7 @@
 #### Home Page (Logged Out)
 
 ##### Navigation Bar
-- Correct links are displayed `Home`, `Browse`, `Register`, `Login`, clicking the links redirect to the correct page.
+- Correct links are displayed `Home`, `Browse`, `Register` and `Login`. Clicking these links redirect to the correct page.
 
 ##### Featured Books
 - Book images are clickable and redirect to the correct page.
@@ -43,7 +43,7 @@
 
 ##### New User Registration
 - Confirmed account creation works and upon successful creation of account, user is logged in and redirected the the home page.
-- If details are missing or entered incorrectly, no account is created, and the incorrect field(s) tell the user what went wrong.
+- If details are missing or entered incorrectly, no account is created, and the incorrect field(s) tells the user what went wrong.
 - `Already have an account? Login` correctly links to the login page.
 
 ##### Log In System
@@ -78,7 +78,7 @@
 - The cart quantity and total price are update to reflect the changes made. 
 - Tooltips appear when hovered over each icon.
 - Two step confirmation is used when the `Delete` icon is clicked. A popup is displayed asking the user `Are you sure you want to remove the item from cart?`. 
-- Clicking ok removes the item from cart and updates the basket total value to reflect changes made.
+- Clicking `Ok` removes the item from cart and updates the basket total value to reflect changes made.
 - `Continue Shopping` button redirects to the correct page.
 - Clicking the `Pay with Card` button brings up the stripe payment interface. Using the Stripe Test Payment method I used the below Visa numbers to test the stripe payment:
 

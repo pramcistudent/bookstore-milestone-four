@@ -8,7 +8,7 @@
 
 **Love Reading Books?**
 
-The Bookstore holds a vast collection of reading material from some of the greatest authors such William Shakespeare, Stephen King, J.K. Rowling and many many more, you'll be sure to find the book you are looking for.
+The Bookstore holds a vast collection of reading material from some of the greatest authors such as William Shakespeare, Stephen King, J.K. Rowling and many more, you'll be sure to find the book you are looking for.
 
 ---
 ## Table of Contents
@@ -36,8 +36,8 @@ The Bookstore holds a vast collection of reading material from some of the great
     - [**Content**](#content)
     - [**Acknowledgements**](#acknowledgements)
 ---
-### Why This Project
-I created this app as part of the Full Stack Frameworks project of [**_Code Institute's_**](https://codeinstitute.net/) Full Stack Software Development course. The project scope was to create a online bookstore, which allows users to search and view books. Users can register to create an account which would then allow for the user to make a purchase.
+### Why This Project?
+I created this app as part of the Full Stack Frameworks project of [**_Code Institute's_**](https://codeinstitute.net/) Full Stack Software Development course. The project scope was to create a online bookstore, which allows users to search and view books. Users can register to create an account which would then allow the user to make a purchase. Authenticated users can create book reviews for all users to see and view their order history.
 
 The front-end display and functionality uses HTML, CSS and JavaScript. The back-end functionality uses Python, Django, SQLite3 and PostgreSQL.
 
@@ -54,6 +54,7 @@ Bookstore is designed to give the user a clean modern experience with quick acce
 - see my profile page and order history.
 - see the price of each book and be able to read more information about the book.
 - be able to see user reviews to help me decide if I want to purchase the book.
+- be able to leave my own book review.
 - receive and email as order confirmation for my purchase.
 - be able to track my order.
 
@@ -208,6 +209,8 @@ To generate your own coverage report install the package using `pip install cove
 In addition to the automated testing files, I used Travis CI for Continuous Integration testing of my code.
 
 ### Interesting Bugs Or Problems
+- **Stripe Payment** - Has a customized logo at the top of the modal payment form. After deploying the app to Heroku and during testing I realised that image was not displaying correctly due to an error. All image files were uploaded to the AWS bucket, but the image link was broken. The image link was amended in order to fix this bug.
+- **Reset Password & Email Confirmation** - Despite allowing less secure apps within my Google Account settings, as instructed by Code Institute's LMS videos, I was still getting an SMTPAuthenticationError when entering the password on the 'Password Reset' screen. This meant that the site was failing to send the password reset email to the user. I resolved this issue by activating the 2-Step Authentication in my Google Account, creating an app password and storing it within my environment variables instead of my standard Gmail password, as instructed by the Django SMTPAuthenticationError article.
 
 ##### [back to top](#table-of-contents)
 ---
@@ -372,7 +375,7 @@ Once the migrations are completed and the super user has been created successful
 - Information about each book was sourced using the online [Waterstones](https://www.waterstones.com/) E-commerce site.
 
 #### Media
-- The site Logo was created be using [Free Logo Design](https://www.freelogodesign.org/) site.
+- The site Logo was created using [Free Logo Design](https://www.freelogodesign.org/) site.
 - I found the Favicon image on Google, and I used the [Favicon.io](https://favicon.io/) converter to convert the image to a Favicon.
 - Carousel images were sourced from the [Google](https://www.google.com/search?q=book+images&tbm=isch&ved=2ahUKEwinuaq1zqnqAhUF0oUKHU2XAVYQ2-cCegQIABAA&oq=book+images&gs_lcp=CgNpbWcQAzIECCMQJzICCAAyAggAMgIIADICCAAyAggAMgIIADICCAAyAggAMgIIAFCsJ1jGM2C1NWgBcAB4AIABiAGIAcAFkgEDNi4ymAEAoAEBqgELZ3dzLXdpei1pbWc&sclient=img&ei=zDn7XqejBoWklwTNroawBQ&bih=625&biw=1024&safe=active&hl=en) images pages.
 - Images for each book were sourced by using the online [Waterstones](https://www.waterstones.com/) E-commerce site.
