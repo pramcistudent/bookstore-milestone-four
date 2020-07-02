@@ -23,6 +23,7 @@ $(document).ready(function () {
         return confirm("Are you sure you want to remove the item from cart?");
     });
 
+    
     if ($('#message').length > 0) {
         setTimeout(function () {
             $('#message').remove();
@@ -30,5 +31,8 @@ $(document).ready(function () {
     }
 
     // Get the element with id="defaultOpen" and click on it
-    document.getElementById("defaultOpen").click();
+    let tabEl = document.getElementById("defaultOpen");
+    if (tabEl) {
+        tabEl.click();
+    }
 });

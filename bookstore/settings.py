@@ -11,8 +11,12 @@ https://docs.djangoproject.com/en/1.11/ref/settings/
 """
 
 import os
-# import env
 import dj_database_url
+
+try:
+    import env
+except ImportError:
+    pass
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -31,7 +35,7 @@ if "127.0.0.1" in os.environ:
 else:
     DEBUG = False
 
-ALLOWED_HOSTS = ["127.0.0.1", 'pram-bookstore.herokuapp.com']
+ALLOWED_HOSTS = ["*", 'pram-bookstore.herokuapp.com']
 
 
 # Application definition
