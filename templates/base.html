@@ -40,13 +40,8 @@
 	</script>
 	<!-- Custom JS file script tag -->
 	<script src="{% static 'js/script.js' %}"></script>
-	<script>
-		setTimeout(function(){
-		  if ($('#message').length > 0) {
-			$('#message').remove();
-		  }
-		}, 3000)
-	  </script>
+    <!-- Scripts content block -->
+	{% block scripts %} {% endblock %}
 </body>
 
 </html>

@@ -6,11 +6,11 @@
 	<h1 class="text-center profile-header">Welcome {{ user.username }}</h1>
 	<div row class="mb-5 mt-4">
 		<div class="tab tab-border">
-			<button class="tablinks" onclick="multiTab(event, 'Profile')"
-				role="tab" aria-selected="false" aria-controls="profile-tab">
+			<button class="tablinks" onclick="multiTab(event, 'Profile')" id="defaultOpen"
+				role="tab" aria-selected="true" aria-controls="profile-tab">
 				<strong>Profile</strong></button>
-			<button class="tablinks" onclick="multiTab(event, 'Order History')" id="defaultOpen"
-				role="tab" aria-selected="true" aria-controls="order-history-tab">
+			<button class="tablinks" id="history-tab" onclick="multiTab(event, 'Order History')" 
+				role="tab" aria-selected="false" aria-controls="order-history-tab">
 				<strong>Order History</strong></button>
 		</div>
 
@@ -31,5 +31,8 @@
 		</div>
 	</div>
 </div>
+{% endblock %}
 
+{% block scripts %}
+    <script src="{% static 'js/profile-script.js' %}"></script>
 {% endblock %}
