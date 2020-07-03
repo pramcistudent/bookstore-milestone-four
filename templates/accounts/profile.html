@@ -6,6 +6,7 @@
 <div class="container mt-3 col-sm-12 col-md-8 col-lg-6">
 	<h1 class="text-center profile-header">Welcome {{ user.username }}</h1>
 	<div row class="mb-5 mt-4">
+        <!-- User details multitabs -->
 		<div class="tab tab-border">
 			<button class="tablinks" onclick="multiTab(event, 'Profile')" id="defaultOpen"
 				role="tab" aria-selected="true" aria-controls="profile-tab">
@@ -17,16 +18,19 @@
 
 		<div id="Profile" class="tabcontent">
 			<div class="text-center p-3 mobile-font">
-				<div class="">
+                <div>
+                    <!-- User email -->
 					<p><strong>Registered email: </strong>{{ user.email }}</p>
+                    <!-- Change password button -->
 					<a href="{% url 'password_change' %}"><button class="btn btn-custom mb-4">
 						<i class="fa fa-lock" aria-hidden="true"></i> Change my password</button></a>
 				</div>
 			</div>
 		</div>
 
+        <!-- User order history -->
 		<div id="Order History" class="tabcontent">
-			<div class="">
+			<div>
 				{% include 'partials/_order_history.html' %}
 			</div>
 		</div>
@@ -34,6 +38,7 @@
 </div>
 {% endblock %}
 
+<!-- Custom scripts for order history tab -->
 {% block js %}
     <script src="{% static 'js/profile-script.js' %}"></script>
 {% endblock %}

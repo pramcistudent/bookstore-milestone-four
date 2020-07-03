@@ -1,4 +1,5 @@
 {% load static %}
+
 <!-- Navbar -->
 <nav class="navbar navbar-expand-lg navbar-dark sticky-top">
 	<div class="container">
@@ -11,18 +12,21 @@
 		</button>
 		<div class="collapse navbar-collapse" id="navbarNavAltMarkup">
 			<ul class="navbar-nav ml-auto">
+
 				<!-- home link -->
 				<li {% if '/' == request.path %} class="nav-item active mr-3" {% else %} class="nav-item mr-3" {% endif %}>
 					<a class="nav-link" href="{% url 'index' %}">
 						<i class="fas fa-home" aria-hidden="true"></i> Home
 					</a>
 				</li>
+
 				<!-- browse books link -->
 				<li {% if 'books' in request.path %} class="nav-item active mr-3" {% else %} class="nav-item mr-3" {% endif %}>
 					<a class="nav-link" href="{% url 'books' %}">
 						<i class="fas fa-book-reader" aria-hidden="true"></i> Browse
 					</a>
 				</li>
+
 				<!-- if user is logged in -->
 				{% if user.is_authenticated %}
 				<!-- profile link -->
@@ -31,12 +35,14 @@
 						<i class="fas fa-user" aria-hidden="true"></i> profile
 					</a>
 				</li>
+
 				<!-- logout link -->
 				<li class="nav-item mr-3">
 					<a class="nav-link" href="{% url 'logout' %}">
 						<i class="fas fa-sign-out-alt" aria-hidden="true"></i> logout
 					</a>
 				</li>
+
 				<!-- cart link -->
 				{% if item_count > 0 %}
 				<li {% if 'cart' in request.path %} class="nav-item active mr-3" {% else %} class="nav-item mr-3" {% endif %}>
@@ -45,14 +51,17 @@
 					</a>
 				</li>
 				{% endif %}
+
 				<!-- if user is not logged in -->
 				{% else %}
+
 				<!-- register link -->
 				<li {% if 'register' in request.path %} class="nav-item active mr-3" {% else %} class="nav-item mr-3" {% endif %}>
 					<a class="nav-link" href="{% url 'register' %}">
 						<i class="fas fa-user-plus" aria-hidden="true"></i> Register
 					</a>
 				</li>
+                
 				<!-- login link -->
 				<li {% if 'login' in request.path %} class="nav-item active mr-3" {% else %} class="nav-item mr-3" {% endif %}>
 					<a class="nav-link" href="{% url 'login' %}">

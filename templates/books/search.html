@@ -9,19 +9,22 @@
 		<form action="{% url 'search' %}" form-group>
 			<div class="row">
 				<div class="col-md-4">
+                    <!-- Search by title -->
 					<input type="text" name="title" class="form-control" value="{{ values.title }}"
 						placeholder="by title">
 				</div>
 				<div class="col-md-4">
 					<select name="author" class="form-control">
-						<option name="author" selected="true" disabled="disabled">by author</option>
+						<!-- Search by author dropdown -->
+                        <option name="author" selected="true" disabled="disabled">by author</option>
 						{% for book in books_all %}
 						<option name=value="{{ book.author }}">{{ book.author }}</option>
 						{% endfor %}
 					</select>
 				</div>
 				<div class="col-md-4">
-					<input type="text" name="category-name" placeholder="by category" class="form-control">
+					<!-- Search by category name -->
+                    <input type="text" name="category-name" placeholder="by category" class="form-control">
 				</div>
 				<button type="submit" class="btn btn-custom btn-width btn-sm mt-4">
 					<i class="fas fa-search" aria-hidden="true"></i>&nbsp;Search</button>
@@ -29,6 +32,7 @@
 		</form>
 	</div>
 
+    <!-- Search result books view -->
 	<div class="container mt-4">
 		<div class="row mt-4 mb-4">
 			{% if books %}
@@ -62,4 +66,5 @@
 		</div>
 	</div>
 </div>
+
 {% endblock %}

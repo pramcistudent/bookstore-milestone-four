@@ -18,6 +18,8 @@
 			<p class="text-center cart-header">Your shopping cart</p>
 		</div>
 	</div>
+
+    <!-- Shopping cart summary table -->
 	<div class="row mx-auto">
 		<div class="col-12 col-sm-12 col-md-12 col-lg-6 text-center">
 			<table class="table custom_table table-striped">
@@ -84,6 +86,8 @@
 				</tbody>
 			</table>
 		</div>
+
+        <!-- Checkout summary table -->
 		<div class="col-12 col-sm-12 col-md-12 col-lg-6 text-center">
 			<table class="table custom_table">
 				<thead class="table_head">
@@ -108,6 +112,8 @@
 					</tr>
 				</tfoot>
 			</table>
+
+            <!-- Stripe payment form -->
 			<div class="mx-auto">
 				<form action="" method="POST">
 					{% csrf_token %}

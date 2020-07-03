@@ -4,10 +4,11 @@
 {% block content %}
 
 <div class="container">
-	<br />
+	<br/>
 	<!-- Messages -->
 	{% include 'partials/_messages.html' %}
-	<!-- Book -->
+
+	<!-- Book detail -->
 	<div class="row mb-4">
 		<div class="col-md-4 mt-4">
 			<img class="book-cover-image" src="{{ book.book_image.url }}" alt="{{ book.title }}">
@@ -38,6 +39,7 @@
 	</div>
 </div>
 
+<!-- Reviews multitabs -->
 <div class="container">
 	<div row class="mb-5">
 		<div class="tab tab-border">
@@ -51,6 +53,7 @@
 			</button>
 		</div>
 
+        <!-- Reviews -->
 		<div id="reviews" class="tabcontent">
 			<div class="row p-4">
 				<div class="review-comments">
@@ -86,6 +89,7 @@
 			</div>
 		</div>
 
+        <!-- Reviews form -->
 		<div id="reviewform">
 			<div id="write-a-review" class="tabcontent">
 				<div class="row p-4">
