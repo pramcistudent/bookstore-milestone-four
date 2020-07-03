@@ -5,13 +5,18 @@ from django.contrib.auth.decorators import login_required
 
 
 def thanks(request, order_id):
+    '''
+    Redirects the user to the thank you page
+    '''
     if order_id:
         customer_order = get_object_or_404(Order, id=order_id)
     return render(request, "order/thanks.html", {"customer_order": customer_order})
 
 
 def viewOrder(request, order_id):
-    # View individual order history
+    '''
+    User can view individual order history
+    '''
     if request.user.is_authenticated:
         email = str(request.user.email)
         order = Order.objects.get(id=order_id, emailAddress=email)

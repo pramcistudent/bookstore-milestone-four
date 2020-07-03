@@ -9,7 +9,10 @@ from reviews.models import Review
 
 
 def books(request):
-    # return all books paginated to 6 on a page
+    '''
+    Return all books in collection
+    Paginated to 6 books per page
+    '''
     books = Books.objects.order_by("-list_date").filter(is_published=True)
     paginator = Paginator(books, 6)
     page = request.GET.get("page")
@@ -19,8 +22,10 @@ def books(request):
     return render(request, "books/books.html", context)
 
 
-# return a single book
 def book(request, book_id):
+    '''
+    Returns the view for a single book
+    '''
     book = get_object_or_404(Books, pk=book_id)
     reviews = Review.objects.filter(book_id=book_id).order_by("pub_date")
     authors = book.author
@@ -39,23 +44,25 @@ def book(request, book_id):
     return render(request, "books/book.html", context)
 
 
-# search
 def search(request):
+    '''
+    Search function allowing the user to search by title, author, category
+    '''
     queryset_list = Books.objects.order_by("-list_date")
 
-    # title
+    # Search by title
     if "title" in request.GET:
         title = request.GET["title"]
         if title:
             queryset_list = queryset_list.filter(title__icontains=title)
 
-    # Author
+    # Search by author
     if "author" in request.GET:
         author = request.GET["author"]
         if author:
             queryset_list = queryset_list.filter(author__name__exact=author)
 
-    # category
+    # Search by category
     if "category_name" in request.GET:
         category_name = request.GET["category_name"]
         if category_name:

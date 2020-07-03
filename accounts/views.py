@@ -10,18 +10,21 @@ from django.http import HttpResponseRedirect
 
 # Create your views here.
 def register(request):
+    '''
+    Render the register page
+    '''
     form = RegisterForm()
     if request.method == "POST":
-        # retrieve form values
+        # Retrieve form values
         first_name = request.POST["first_name"]
         last_name = request.POST["last_name"]
         username = request.POST["username"]
         email = request.POST["email"]
         password = request.POST["password"]
         password_confirm = request.POST["password_confirm"]
-        # check if both passwords match
+        # Check if both passwords match
         if password == password_confirm:
-            # check username hasn't already been used
+            # Check username hasn't already been used in DB
             if User.objects.filter(username=username).exists():
                 messages.error(request, "That username already exists")
                 return redirect("register")
@@ -37,7 +40,7 @@ def register(request):
                         email=email,
                         password=password,
                     )
-                    # login in directly after registration
+                    # Login user in after successful registration
                     auth.login(request, user)
                     messages.success(
                         request, "You have succesfully registered and are now logged in"
@@ -51,16 +54,22 @@ def register(request):
 
 
 def login(request):
+    '''
+    Return a login page and logs in user
+    '''
     form = LoginForm()
     if request.method == "POST":
+        # If form is valid we get both the username and password
         username = request.POST["username"]
         password = request.POST["password"]
         user = auth.authenticate(username=username, password=password)
+        # If details are valid, log user in and display message
         if user is not None:
             auth.login(request, user)
             messages.success(request, "You are now logged in")
             return redirect("index")
         else:
+            # If details don't match display error message
             messages.error(request, "Invalid username or password")
             return redirect("login")
     else:
@@ -68,7 +77,9 @@ def login(request):
 
 
 def logout(request):
-    # logout the user
+    '''
+    Log the user out
+    '''
     auth.logout(request)
     messages.success(request, "You have successfully been logged out!")
     return redirect("index")
@@ -76,7 +87,10 @@ def logout(request):
 
 @login_required()
 def profile(request):
-    # user's profile page
+    '''
+    the user's profile page
+    Allows the user to update their password and view order history
+    '''
     if request.user.is_authenticated:
         email = str(request.user.email)
         order_details = Order.objects.filter(emailAddress=email).order_by("-created")

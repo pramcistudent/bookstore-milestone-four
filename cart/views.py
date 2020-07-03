@@ -11,6 +11,9 @@ from django.core.mail import EmailMessage
 
 
 def _cart_id(request):
+    '''
+    Create a new cart session
+    '''
     cart = request.session.session_key
     if not cart:
         cart = request.session.create()
@@ -18,6 +21,9 @@ def _cart_id(request):
 
 
 def add_cart(request, book_id):
+    '''
+    Allows the user to add items to the cart
+    '''
     book = Books.objects.get(id=book_id)
     try:
         cart = Cart.objects.get(cart_id=_cart_id(request))
@@ -36,6 +42,9 @@ def add_cart(request, book_id):
 
 
 def cart_detail(request, total=0, counter=0, cart_items=None):
+    '''
+    Displays cart item summary to user
+    '''
     try:
         cart = Cart.objects.get(cart_id=_cart_id(request))
         cart_items = CartItem.objects.filter(cart=cart, active=True)
@@ -71,7 +80,7 @@ def cart_detail(request, total=0, counter=0, cart_items=None):
                 description=description,
                 customer=customer.id,
             )
-            """Creating the order"""
+            # Creating the order
             try:
                 order_details = Order.objects.create(
                     token=token,
@@ -97,7 +106,7 @@ def cart_detail(request, total=0, counter=0, cart_items=None):
                         order=order_details,
                     )
                     oi.save()
-                    """Reduce stock when order is placed or saved"""
+                    # Reduce stock when order is placed
                     books = Books.objects.get(id=order_item.book.id)
                     books.stock = int(order_item.book.stock - order_item.quantity)
                     books.save()
@@ -124,6 +133,9 @@ def cart_detail(request, total=0, counter=0, cart_items=None):
 
 
 def cart_remove(request, book_id):
+    '''
+    Allows the user to reduce the cart quantity
+    '''
     cart = Cart.objects.get(cart_id=_cart_id(request))
     book = get_object_or_404(Books, id=book_id)
     cart_item = CartItem.objects.get(book=book, cart=cart)
@@ -136,6 +148,9 @@ def cart_remove(request, book_id):
 
 
 def full_remove(request, book_id):
+    '''
+    Allows the user to remove the item from cart
+    '''
     cart = Cart.objects.get(cart_id=_cart_id(request))
     book = get_object_or_404(Books, id=book_id)
     cart_item = CartItem.objects.get(book=book, cart=cart)
@@ -144,10 +159,13 @@ def full_remove(request, book_id):
 
 
 def sendEmail(order_id):
+    '''
+    Sends an email summary as confrimation of purchase to user 
+    '''
     transaction = Order.objects.get(id=order_id)
     order_items = OrderItem.objects.filter(order=transaction)
     try:
-        """Sending the order"""
+        # Sending the order
         subject = "Bookstore - New Order #{}".format(transaction.id)
         to = ["{}".format(transaction.emailAddress)]
         from_email = "orders@bookstore.com"

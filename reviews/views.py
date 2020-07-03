@@ -8,6 +8,9 @@ from django.contrib.auth.decorators import login_required
 
 
 def add_review(request, book_id):
+    '''
+    Allows the user to create a book review
+    '''
     book = get_object_or_404(Books, pk=book_id)
     if request.method == 'POST':
         form = ReviewForm(request.POST, request.FILES)
